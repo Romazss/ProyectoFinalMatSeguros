@@ -1,0 +1,182 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║  PROYECTO FINAL - MATEMÁTICAS ACTUARIALES EYP2605                        ║
+║  Asignación Confirmada: Origen=2, TM_SEXO=M (INVALIDEZ 2014 - Masc.)    ║
+║                                                                           ║
+║  Período: Noviembre 2025                                                 ║
+║  Entrega: 08 de diciembre antes de 22:00 hrs                             ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+📚 DOCUMENTACIÓN DISPONIBLE
+─────────────────────────────────────────────────────────────────────────────
+
+⭐ COMIENZA AQUÍ:
+   1. GUIA_RAPIDA.md          → Checklist paso a paso
+   2. VALIDACION_INICIAL.R    → Verifica tus datos
+   3. CONFIGURACION_GRUPO.md  → Tu configuración específica
+
+COMPLEMENTARIA:
+   4. ESTRUCTURA_COMPLETA.md  → Mapa visual completo
+   5. TABLA_REFERENCIA_INVALIDEZ_2014.md → Cómo obtener tabla oficial
+   6. RESUMEN_ENTREGA.md      → Checklist final
+   7. PROYECTO_FINAL.md       → Especificaciones oficiales
+   8. README.md               → Estructura general
+
+
+📂 ESTRUCTURA DE CARPETAS
+─────────────────────────────────────────────────────────────────────────────
+
+01_construccion_tabla_mortalidad/     ← Módulo 1 (60%)
+   ├── 01_carga_y_exploracion.R
+   ├── 02_periodo_analisis.R
+   ├── 03_graduacion.R
+   ├── 04_bondad_ajuste.R
+   └── 05_extrapolacion_tabla_completa.R
+
+02_valores_conmutacion/               ← Módulo 2 (10%)
+   └── 01_conmutaciones.R
+
+03_valores_actuales/                  ← Módulo 3 (30%)
+   └── 01_rentas_seguros.R
+
+data/                                 ← Copiar Base_act.RData aquí
+resultados/                           ← Outputs se guardan aquí
+
+
+🚀 PASOS RÁPIDOS
+─────────────────────────────────────────────────────────────────────────────
+
+PASO 1: Copia Base_act.RData a la carpeta data/
+
+PASO 2: Ejecuta en RStudio:
+        source("VALIDACION_INICIAL.R")
+
+PASO 3: Si todo está bien, ejecuta módulos en orden:
+        source("01_construccion_tabla_mortalidad/01_carga_y_exploracion.R")
+        source("01_construccion_tabla_mortalidad/02_periodo_analisis.R")
+        source("01_construccion_tabla_mortalidad/03_graduacion.R")
+        source("01_construccion_tabla_mortalidad/04_bondad_ajuste.R")
+        source("01_construccion_tabla_mortalidad/05_extrapolacion_tabla_completa.R")
+        source("02_valores_conmutacion/01_conmutaciones.R")
+        source("03_valores_actuales/01_rentas_seguros.R")
+
+PASO 4: Descarga tabla INVALIDEZ 2014 - Masculino (ver guía en documentación)
+
+PASO 5: Completa comparativos y crea informe final
+
+
+✅ VERIFICA QUE OBTENGAS ESTOS ARCHIVOS
+─────────────────────────────────────────────────────────────────────────────
+
+En carpeta resultados/:
+
+MÓDULO 1:
+  ✓ cuadro_descriptivo.csv
+  ✓ tasas_graduadas.csv
+  ✓ resumen_bondad_ajuste.csv
+  ✓ tabla_vida_completa.csv              ← PRINCIPAL
+  ✓ comparacion_metodos.png
+
+MÓDULO 2:
+  ✓ tabla_conmutaciones.csv              ← PRINCIPAL
+
+MÓDULO 3:
+  ✓ dotal_puro.csv
+  ✓ renta_vitalicia_vencida.csv
+  ✓ renta_diferida_anticipada.csv
+  ✓ renta_temporal_vencida.csv
+  ✓ renta_temporal_diferida_anticipada.csv
+  ✓ tabla_referencia_invalidez_2014_m.csv (obtener)
+
+
+📊 TU ASIGNACIÓN
+─────────────────────────────────────────────────────────────────────────────
+
+Base de Datos:     Base_act.RData
+Origen:            2
+Sexo:              Masculino (M)
+Tabla Referencia:  INVALIDEZ 2014 - Masculino
+Período:           01/01/2000 - 31/12/2012
+Tasa Técnica:      5%
+Radix:             10.000.000
+
+
+💡 RECOMENDACIONES
+─────────────────────────────────────────────────────────────────────────────
+
+1. Lee GUIA_RAPIDA.md primero (5 minutos)
+2. Ejecuta VALIDACION_INICIAL.R para diagnosticar
+3. Sigue los scripts en orden estricto
+4. Documenta cualquier ajuste realizado
+5. Compara con tabla referencia oficial
+6. Analiza diferenciales >5%
+7. Guarda todo en GitHub como respaldo
+
+
+❓ DUDAS FRECUENTES
+─────────────────────────────────────────────────────────────────────────────
+
+P: ¿Por dónde empiezo?
+R: Lee GUIA_RAPIDA.md → Ejecuta VALIDACION_INICIAL.R → Sigue los scripts
+
+P: ¿Qué hago si un script no funciona?
+R: Ejecuta VALIDACION_INICIAL.R para verificar estructura de datos
+
+P: ¿Dónde obtengo la tabla de referencia?
+R: Lee TABLA_REFERENCIA_INVALIDEZ_2014.md - tiene fuentes y pasos
+
+P: ¿Puedo cambiar las edades de las rentas?
+R: No, están especificadas. Ver PROYECTO_FINAL.md
+
+P: ¿Qué es lo más importante?
+R: Tabla vida completa (tabla_vida_completa.csv) y comparativos (5 rentas)
+
+
+⏰ CRONOGRAMA SUGERIDO
+─────────────────────────────────────────────────────────────────────────────
+
+Hoy:
+  - Leer documentación (30 min)
+  - Ejecutar VALIDACION_INICIAL.R (10 min)
+  - Copiar Base_act.RData (2 min)
+
+Mañana:
+  - Módulo 1: Ejecutar 5 scripts (30 min)
+  - Revisar outputs (20 min)
+
+Próximos días:
+  - Obtener tabla referencia (30-60 min)
+  - Módulo 2 y 3 (30 min)
+  - Crear informe (2 horas)
+
+Antes del 08/dic:
+  - Revisión final (30 min)
+  - Respaldos (10 min)
+
+
+📞 CONTACTOS Y RECURSOS
+─────────────────────────────────────────────────────────────────────────────
+
+Documentación oficial: PROYECTO_FINAL.md
+Tu configuración: CONFIGURACION_GRUPO.md
+Guía de ejecución: GUIA_RAPIDA.md
+Tabla referencia: TABLA_REFERENCIA_INVALIDEZ_2014.md
+Estructura visual: ESTRUCTURA_COMPLETA.md
+Checklist final: RESUMEN_ENTREGA.md
+
+Superintendencia de Pensiones: www.spensiones.cl
+INE Chile: www.ine.cl
+Biblioteca Universidad: (consultar)
+
+
+═════════════════════════════════════════════════════════════════════════════
+
+                        ¡LISTO PARA COMENZAR! 🚀
+
+    Sigue GUIA_RAPIDA.md → Tu proyecto estará listo en 2-3 días
+
+                    Entrega: 08 de diciembre 2025
+                            antes de 22:00 hrs
+
+═════════════════════════════════════════════════════════════════════════════
