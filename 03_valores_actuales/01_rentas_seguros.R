@@ -285,7 +285,8 @@ print(renta_temporal_venc)
 # 3.5 RENTA TEMPORAL DIFERIDA ANTICIPADA (Edad final = 70 años)
 cat("\n" %+% "="^80 %+% "\n")
 cat("3.5 - RENTA TEMPORAL DIFERIDA ANTICIPADA (Edad final = 70 años)\n")
-cat("Fórmula: _70-x/_x ä_70-x| = [N(70) - N(71)] / D(x)\n")
+cat("Fórmula según enunciado: _70-x/_x ä_70-x| = [N(70) - N(71)] / D(x)\n")
+cat("Nota: Esta fórmula corresponde matemáticamente a un Dotal Puro a los 70 años.\n")
 cat("="^80 %+% "\n\n")
 
 renta_temporal_dif_ant <- data.frame(
@@ -293,11 +294,22 @@ renta_temporal_dif_ant <- data.frame(
   Tabla_Obtenida = NA_real_
 )
 
-for (i in 1:nrow(renta_temporal_dif_ant)) {
-  renta_temporal_dif_ant$Tabla_Obtenida[i] <- renta_temporal_diferida_anticipada(
+# Función específica para el caso 3.5 según fórmula del enunciado
+calculo_caso_3_5 <- function(edad_actual, conmut) {
+  if (edad_actual > 70) return(NA)
+  
+  Dx <- conmut$Dx[conmut$edad == edad_actual]
+  N70 <- conmut$Nx[conmut$edad == 70]
+  N71 <- conmut$Nx[conmut$edad == 71]
+  
+  if (length(Dx) == 0 || length(N70) == 0 || length(N71) == 0) return(NA)
+  
+  return((N70 - N71) / Dx)
+}
+
+for (i in seq_len(nrow(renta_temporal_dif_ant))) {
+  renta_temporal_dif_ant$Tabla_Obtenida[i] <- calculo_caso_3_5(
     renta_temporal_dif_ant$Edad[i], 
-    renta_temporal_dif_ant$Edad[i],  # Diferimiento = 0 en este caso
-    70,  # Edad final
     conmutaciones
   )
 }

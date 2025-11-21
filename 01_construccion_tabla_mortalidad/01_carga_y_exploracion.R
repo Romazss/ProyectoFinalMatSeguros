@@ -8,14 +8,12 @@
 library(tidyverse)
 library(readxl)
 
-#casdsaidasd
-
 # ============================================================================
 # 1. CARGA DE DATOS
 # ============================================================================
 
 # Cargar el archivo RData
-load("../data/Base_act.RData")
+load("/Users/estebanroman/Documents/GitHub/ProyectoFinalMatSeguros/data/base_act.RData")
 
 # Verificar qué objetos se cargaron
 ls()
@@ -59,31 +57,51 @@ cat("\n--- Crosstab: Tabla vs TM_SEXO ---\n")
 table(base_act$Tabla, base_act$TM_SEXO)
 
 # ============================================================================
-# 4. EXPLORACIÓN DE FECHAS
+# 4. PROCESAMIENTO DE FECHAS Y VARIABLES
 # ============================================================================
 
-# Verificar formato de fechas
-cat("\n--- Información de Fechas ---\n")
-head(base_act[, grep("fecha|date|Date", names(base_act), ignore.case = TRUE)])
+cat("\n--- Procesando fechas y variables ---\n")
 
-# Convertir a formato fecha si es necesario
-# MODIFICAR según el nombre real de la columna de fecha
-# base_act$fecha <- as.Date(base_act$fecha_columna)
+# Función para convertir entero AAAAMMDD a Date
+convertir_fecha_int <- function(x) {
+  # Convertir 0 a NA
+  x_char <- as.character(x)
+  # Manejar casos donde x es 0 o NA
+  is_invalid <- x == 0 | is.na(x) | x_char == "0"
+  
+  fechas <- rep(as.Date(NA), length(x))
+  fechas[!is_invalid] <- as.Date(x_char[!is_invalid], format = "%Y%m%d")
+  
+  return(fechas)
+}
+
+# Aplicar transformaciones según definición de datos
+base_act <- base_act %>%
+  mutate(
+    # Asegurar tipos de datos
+    ID = as.integer(ID),
+    Origen = as.integer(Origen),
+    Tabla = as.integer(Tabla),
+    TM_SEXO = as.character(TM_SEXO),
+    
+    # Convertir fechas
+    fecha_nacimiento = convertir_fecha_int(TM_FEC_NAC),
+    fecha_fallecimiento = convertir_fecha_int(TM_FEC_FALL),
+    
+    # Indicador de fallecimiento
+    es_fallecido = !is.na(fecha_fallecimiento)
+  )
+
+# Verificar conversión
+cat("\n--- Resumen de Fechas ---\n")
+summary(base_act$fecha_nacimiento)
+summary(base_act$fecha_fallecimiento)
+
+cat("\n--- Conteo de Fallecidos ---\n")
+table(base_act$es_fallecido)
 
 # ============================================================================
-# 5. EXPLORACIÓN DE MUERTES Y EXPOSICIÓN
-# ============================================================================
-
-# Verificar columnas relacionadas con muertes
-cat("\n--- Columnas de Muertes ---\n")
-head(base_act[, grep("muerte|death|Death|MUERTE", names(base_act), ignore.case = TRUE)])
-
-# Verificar columnas de edad
-cat("\n--- Columnas de Edad ---\n")
-head(base_act[, grep("edad|age|Age|EDAD", names(base_act), ignore.case = TRUE)])
-
-# ============================================================================
-# 6. CREAR SUBSET PARA ANÁLISIS
+# 5. CREAR SUBSET PARA ANÁLISIS
 # ============================================================================
 
 # ASIGNACIÓN DEL GRUPO:
@@ -98,10 +116,10 @@ cat("Registros:", nrow(datos_analisis), "\n")
 cat("Columnas:", ncol(datos_analisis), "\n")
 
 # ============================================================================
-# 7. GUARDAR DATOS PROCESADOS
+# 6. GUARDAR DATOS PROCESADOS
 # ============================================================================
 
 # Guardar el subset para uso en otros scripts
-save(datos_analisis, file = "../data/datos_seleccionados.RData")
+save(datos_analisis, file = "/Users/estebanroman/Documents/GitHub/ProyectoFinalMatSeguros/data/datos_seleccionados.RData")
 
-cat("\nDatos cargados y explorados exitosamente.\n")
+cat("\nDatos cargados, procesados y explorados exitosamente.\n")

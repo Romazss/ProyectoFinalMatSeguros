@@ -15,14 +15,14 @@ cat("="^80 %+% "\n\n")
 cat("1. VERIFICACIÓN DE ARCHIVOS\n")
 cat("-" %+% "="^40 %+% "\n\n")
 
-rdata_path <- "./data/Base_act.RData"
+rdata_path <- "./data/base_act.RData"
 
 if (!file.exists(rdata_path)) {
-  cat("❌ ERROR: No se encontró Base_act.RData\n")
-  cat("   Asegúrate de copiar el archivo a: ./data/Base_act.RData\n")
+  cat("❌ ERROR: No se encontró base_act.RData\n")
+  cat("   Asegúrate de copiar el archivo a: ./data/base_act.RData\n")
   stop("Archivo no encontrado")
 } else {
-  cat("✓ Base_act.RData encontrado\n")
+  cat("✓ base_act.RData encontrado\n")
 }
 
 # ============================================================================
@@ -89,10 +89,10 @@ cat("  - Columnas con 'edad': ",
     paste(names(base_act)[grepl("edad|age|Age", names(base_act), ignore.case = TRUE)], 
           collapse = ", "), "\n")
 cat("  - Columnas con 'fecha': ", 
-    paste(names(base_act)[grepl("fecha|date|Date", names(base_act), ignore.case = TRUE)], 
+    paste(names(base_act)[grepl("fecha|date|Date|FEC", names(base_act), ignore.case = TRUE)], 
           collapse = ", "), "\n")
 cat("  - Columnas con 'muerte': ", 
-    paste(names(base_act)[grepl("muerte|death|Death", names(base_act), ignore.case = TRUE)], 
+    paste(names(base_act)[grepl("muerte|death|Death|FALL", names(base_act), ignore.case = TRUE)], 
           collapse = ", "), "\n")
 
 # ============================================================================
