@@ -17,7 +17,7 @@ load("/Users/estebanroman/Documents/GitHub/ProyectoFinalMatSeguros/data/base_act
 
 # Verificar qué objetos se cargaron
 ls()
-
+base_act <- baseR
 # ============================================================================
 # 2. EXPLORACIÓN INICIAL DE DATOS
 # ============================================================================
@@ -123,3 +123,4 @@ cat("Columnas:", ncol(datos_analisis), "\n")
 save(datos_analisis, file = "/Users/estebanroman/Documents/GitHub/ProyectoFinalMatSeguros/data/datos_seleccionados.RData")
 
 cat("\nDatos cargados, procesados y explorados exitosamente.\n")
+ 
