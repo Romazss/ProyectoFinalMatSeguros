@@ -136,7 +136,11 @@ plot(base2$edad, base2$TasaBruta,
      main = "Tasa de Mortalidad con curva WH")
 lines(base2$edad, TasasEsperadas.2, lwd = 3, col="red")
 
+
+
 MuertesEsperadas.2 <- base2$Exposicion * TasasEsperadas.2   # E_x * m_x
+
+base2$MuertesEsperadas <- MuertesEsperadas.2
 
 # Test bondad de ajuste
 

@@ -3,39 +3,39 @@
 \contentsline {subsection}{\numberline {1.1}Especificaciones del Proyecto}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Estructura del Trabajo}{1}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Herramientas y Metodología}{1}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Construcción de Tabla de Mortalidad}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}1.1 Obtención del Cuerpo de la Tabla}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Construcción de Tabla de Mortalidad}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Obtención del Cuerpo de la Tabla}{2}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Insumos y Período de Análisis}{2}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}1.2 Cuadro de Registros y Muertes}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}1.3 Graduación}{2}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.2}Cuadro de Registros y Muertes}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Graduación}{2}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Tasas de Mortalidad Crudas}{2}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Edades Límites Escogidas}{2}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Edades Límites Escogidas}{3}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Método y Parámetros de Graduación}{3}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Tests de Bondad de Ajuste}{3}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}1.4 Extrapolación}{4}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Métodos Seleccionados}{4}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Extrapolación de la Cabeza}{4}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Extrapolación de la Cola}{4}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}1.5 Tabla de Mortalidad Completa Obtenida}{5}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}1.6 Visualización y Resultados Finales}{6}{subsubsection.2.5.1}%
-\contentsline {section}{\numberline {3}Valores de Conmutación}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Funciones de Conmutación}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Resultados Calculados}{8}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Tabla Obtenida}{9}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Tabla de Referencia MI2014}{9}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}Cálculo de Valores Actuales}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}3.1 Dotal Puro}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}3.2 Renta Vitalicia Vencida}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}3.3 Renta Vitalicia Diferida (75 años) Anticipada}{10}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}3.4 Renta Temporal Vencida (80 años)}{10}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}3.5 Renta Temporal Diferida Anticipada (58-70 años)}{11}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Sensibilidad a la Tasa de Interés}{11}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Conclusiones}{12}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Hallazgos Principales}{12}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Construcción de la Tabla}{12}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Valores de Conmutación}{12}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Valores Actuales}{12}{subsubsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.2}Implicaciones Actuariales}{12}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Para la Política de Productos}{12}{subsubsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.3}Limitaciones}{13}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Tests de Bondad de Ajuste}{4}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Extrapolación}{5}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Métodos Seleccionados}{5}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Extrapolación de la Cabeza}{5}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Extrapolación de la Cola}{5}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}Tabla de Mortalidad Completa Obtenida}{7}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Tabla Completa Obtenida}{8}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Tabla Completa de Referencia MI2014}{10}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Visualización y Resultados Finales}{13}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Valores de Conmutación}{16}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Funciones de Conmutación}{16}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Resultados Calculados}{16}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Cálculo de Valores Actuales}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1} Dotal Puro}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Renta Vitalicia Vencida}{25}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Renta Vitalicia Diferida (75 años) Anticipada}{25}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Renta Temporal Vencida (80 años)}{26}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Renta Temporal Diferida Anticipada (58-70 años)}{26}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Sensibilidad a la Tasa de Interés}{27}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusiones}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Hallazgos Principales}{27}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Construcción de la Tabla}{27}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Valores de Conmutación}{27}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Valores Actuales}{27}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Implicaciones Actuariales}{28}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Para la Política de Productos}{28}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.3}Limitaciones}{28}{subsection.5.3}%
 \contentsfinish 

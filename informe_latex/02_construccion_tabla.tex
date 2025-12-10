@@ -1,11 +1,12 @@
 % ============================================================================
 % SECCIÓN 2: CONSTRUCCIÓN DE TABLA DE MORTALIDAD (60%)
 % ============================================================================
+\clearpage
 
 \section{Construcción de Tabla de Mortalidad}
 
 % ----------------------------------------------------------------------------
-\subsection{1.1 Obtención del Cuerpo de la Tabla}
+\subsection{Obtención del Cuerpo de la Tabla}
 
 \subsubsection{Insumos y Período de Análisis}
 
@@ -19,7 +20,7 @@
 \end{itemize}
 
 % ----------------------------------------------------------------------------
-\subsection{1.2 Cuadro de Registros y Muertes}
+\subsection{Cuadro de Registros y Muertes}
 
 \begin{table}[H]
 \centering
@@ -39,7 +40,7 @@ Muertes & 41,370 & 28,510 \\
 \textbf{Criterio de inclusión:} Se consideraron únicamente registros con exposición positiva durante el período 2000-2012.
 
 % ----------------------------------------------------------------------------
-\subsection{1.3 Graduación}
+\subsection{Graduación}
 
 \subsubsection{Tasas de Mortalidad Crudas}
 
@@ -52,6 +53,16 @@ Antes de proceder con la graduación, se analizaron las tasas brutas de mortalid
 \label{fig:tasas_crudas}
 \end{figure}
 
+\textbf{Análisis del gráfico:}
+
+El gráfico muestra el patrón esperado de $q_x$ (tasa bruta de mortalidad) para población masculina:
+
+\begin{itemize}
+    \item \textbf{Mortalidad baja y estable (0-60 años):} Las tasas se mantienen muy bajas y relativamente constantes en este rango etario, reflejando el bajo riesgo de muerte en la población adulta joven y de mediana edad.
+    \item \textbf{Incremento exponencial (60+ años):} A partir de los 60 años se observa un crecimiento exponencial característico de la mortalidad senil, consistente con las leyes de Gompertz-Makeham.
+    \item \textbf{Volatilidad en edades avanzadas ($\sim$95+ años):} Algunos puntos caen a 0 en edades muy avanzadas, indicando exposición insuficiente (pocas personas observadas en esas edades). Esta volatilidad justifica plenamente el uso de métodos de graduación y extrapolación para estabilizar las tasas.
+\end{itemize}
+
 \subsubsection{Edades Límites Escogidas}
 
 \textbf{Rango de graduación:} 20 a 84 años
@@ -59,7 +70,7 @@ Antes de proceder con la graduación, se analizaron las tasas brutas de mortalid
 \textbf{Fundamentación:}
 \begin{itemize}
     \item Las tasas brutas de mortalidad ($q_x$) presentan mayor estabilidad en este rango
-    \item Mayor concentración de exposición al riesgo (4.47 millones años-persona)
+    \item Mayor concentración de exposición al riesgo
     \item Coherencia con el cuerpo central de la tabla de referencia MI2014
     \item Suficiente volumen de datos para garantizar confiabilidad
 \end{itemize}
@@ -74,9 +85,8 @@ Antes de proceder con la graduación, se analizaron las tasas brutas de mortalid
     \item $d = 2$ (orden de diferencias)
 \end{itemize}
 
-\textbf{Script de R:} \texttt{trabajo\_final.r}
-
 El parámetro $\lambda = 0.02$ balancea adecuadamente la fidelidad a datos observados con la suavidad de la curva. El orden $d=2$ es estándar en graduación actuarial.
+\clearpage
 
 \textbf{Resultado de la graduación:}
 
@@ -86,6 +96,16 @@ El parámetro $\lambda = 0.02$ balancea adecuadamente la fidelidad a datos obser
 \caption{Tasas graduadas con Whittaker-Henderson}
 \label{fig:graduacion_wh}
 \end{figure}
+
+\textbf{Análisis del ajuste:}
+
+El método Whittaker-Henderson logra un suavizamiento óptimo de los datos observados en el rango 20-84 años:
+
+\begin{itemize}
+    \item \textbf{Fidelidad a los datos:} La curva roja (suavizada) sigue fielmente los puntos grises (observados) sin sobre-suavizar, preservando las características reales de la mortalidad observada.
+    \item \textbf{Captura del patrón exponencial:} El comportamiento exponencial típico de la mortalidad adulta está correctamente representado, cumpliendo con las expectativas teóricas.
+    \item \textbf{Balance óptimo:} El parámetro $\lambda = 0.02$ logra el equilibrio adecuado entre ajuste a datos empíricos y suavidad de la curva graduada.
+\end{itemize}
 
 \subsubsection{Tests de Bondad de Ajuste}
 
@@ -118,7 +138,7 @@ Test de Signos & 34 & 0.8043 & No rechaza H$_0$ \\
 \textbf{Conclusión:} 3 de 4 tests validan la calidad del ajuste. El rechazo del test de Rachas es esperado por el método de graduación y no compromete la validez actuarial del modelo.
 
 % ----------------------------------------------------------------------------
-\subsection{1.4 Extrapolación}
+\subsection{Extrapolación}
 
 \subsubsection{Métodos Seleccionados}
 
@@ -130,7 +150,10 @@ Se utilizaron dos métodos complementarios según características de cada rango
         \item Edades 0-9 años: Método de Oppermann
         \item Edades 10-19 años: Método de Heligman-Pollard
     \end{itemize}
-    \item \textbf{Cola (edades 85-109):} Método de Heligman-Pollard
+    \item \textbf{Cola:}
+    \begin{itemize}
+        \item Edades 85-109 años: Método de Heligman-Pollard
+    \end{itemize}
 \end{itemize}
 
 \subsubsection{Extrapolación de la Cabeza}
@@ -172,6 +195,8 @@ Este factor asegura la continuidad entre ambos métodos en la edad de transició
 
 Los parámetros fueron ajustados mediante optimización numérica garantizando continuidad en edad 84 años.
 
+\clearpage
+
 La Figura~\ref{fig:tabla_completa} muestra la tabla completa con ambas extrapolaciones:
 
 \begin{figure}[H]
@@ -180,6 +205,20 @@ La Figura~\ref{fig:tabla_completa} muestra la tabla completa con ambas extrapola
 \caption{Tabla de mortalidad completa con extrapolaciones de Oppermann (0-19) y Heligman-Pollard (85-109)}
 \label{fig:tabla_completa}
 \end{figure}
+
+\textbf{Análisis de la tabla completa:}
+
+La combinación de métodos produce una tabla de mortalidad continua y coherente:
+
+\begin{itemize}
+    \item \textbf{Opperman (0-9 años):} Segmento verde, casi plano cerca de 0, representa la baja mortalidad infantil en población seleccionada.
+    \item \textbf{Heligman-Pollard (10-19 años):} Segmento azul, transición suave entre mortalidad infantil y adulta joven.
+    \item \textbf{Whittaker-Henderson (20-84 años):} Segmento rojo, captura el crecimiento exponencial típico de la mortalidad adulta, basado en datos observados.
+    \item \textbf{Heligman-Pollard (85-109 años):} Segmento azul, extrapolación a edades extremas donde los datos son escasos.
+    \item \textbf{Continuidad:} La curva es continua y monótona creciente en todo su recorrido, característica fundamental de una tabla de mortalidad bien construida.
+\end{itemize}
+
+\clearpage
 
 La Figura~\ref{fig:tabla_completa_log} presenta la misma información en escala logarítmica:
 
@@ -190,41 +229,73 @@ La Figura~\ref{fig:tabla_completa_log} presenta la misma información en escala 
 \label{fig:tabla_completa_log}
 \end{figure}
 
+\textbf{Análisis en escala logarítmica:}
+
+\begin{itemize}
+    \item \textbf{Mortalidad infantil (Opperman 0-9):} El segmento verde muestra la típica caída inicial de la mortalidad infantil, característica del primer año de vida.
+    \item \textbf{Transiciones entre métodos:} Se observan pequeños cambios de pendiente en las edades de transición ($\sim$10 años y $\sim$20 años). Aunque visibles en escala log, estas transiciones son suaves en escala natural y no comprometen la validez actuarial de la tabla.
+    \item \textbf{Crecimiento senil (85-109):} La extrapolación HP en edades avanzadas mantiene la tendencia exponencial esperada hasta la edad límite.
+\end{itemize}
+
 % ----------------------------------------------------------------------------
-\subsection{1.5 Tabla de Mortalidad Completa Obtenida}
+\subsection{Tabla de Mortalidad Completa Obtenida}
 
 Se construyó la tabla completa de mortalidad con raíz $l_{10} = 10.000.000$, incluyendo todas las funciones biométricas para edades 0 a 109 años.
 
 \textbf{Columnas de la tabla:}
 \begin{itemize}
     \item $q_x$: Probabilidad de muerte entre edad $x$ y $x+1$
-    \item $p_x$: Probabilidad de sobrevivencia entre edad $x$ y $x+1$
     \item $l_x$: Número de sobrevivientes a edad $x$
     \item $d_x$: Número de muertes entre edad $x$ y $x+1$
-    \item $D_x$: Función de conmutación $D_x = v^x \cdot l_x$
-    \item $C_x$: Función de conmutación $C_x = v^{x+0.5} \cdot d_x$
-    \item $N_x$: Función de conmutación acumulada
-    \item $M_x$: Función de conmutación acumulada
+    \item $p_x$: Probabilidad de sobrevivencia entre edad $x$ y $x+1$
+    \item $T_x$: Años-persona totales a partir de edad $x$
+    \item $L_x$: Años-persona vividos entre edad $x$ y $x+1$
     \item $e_x$: Esperanza de vida a edad $x$
 \end{itemize}
 
-La tabla completa se presenta en las siguientes páginas. Incluye:\begin{itemize}
-    \item Edades 0-9: Extrapolación por Oppermann
-    \item Edades 10-19: Extrapolación por Heligman-Pollard
-    \item Edades 20-84: Graduación por Whittaker-Henderson
-    \item Edades 85-109: Extrapolación por Heligman-Pollard
-\end{itemize}
+\clearpage
 
-\subsubsection{1.6 Visualización y Resultados Finales}
+% ============================================================================
+% TABLAS COMPLETAS DE MORTALIDAD
+% ============================================================================
 
-\textbf{Tasas de mortalidad observadas (crudas):}
+\subsubsection{Tabla Completa Obtenida}
+
+\input{tablas/tabla_mortalidad_obtenida_completa}
+
+\subsubsection{Tabla Completa de Referencia MI2014}
+
+\input{tablas/tabla_mortalidad_referencia_completa}
+
+% ============================================================================
+
+\subsection{Visualización y Resultados Finales}
+
+\textbf{Exposición y muertes por edad:}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{Imagenes/01_tasa_bruta_mortalidad.png}
-\caption{Tasas de mortalidad crudas observadas}
-\label{fig:tasas_crudas}
+\includegraphics[width=0.75\textwidth]{Imagenes/06_exposicion_muertes.png}
+\caption{Exposición y muertes por edad en el rango de graduación}
+\label{fig:exposicion_muertes}
 \end{figure}
+
+\textbf{Análisis de exposición:}
+
+Este gráfico de doble eje justifica las decisiones metodológicas adoptadas:
+
+\begin{itemize}
+    \item \textbf{Distribución de exposición (barras azules):} Pico en edades 55-65 años, típico de carteras de seguros de vida y rentas vitalicias con antigüedad significativa.
+    \item \textbf{Distribución de muertes (línea roja):} Concentración alrededor de 65-70 años, coherente con la estructura de edad de la población expuesta.
+    \item \textbf{Caída post-70 años:} La reducción drástica de exposición después de 70 años explica la mayor variabilidad de las tasas brutas en edades avanzadas, visible en la Figura~\ref{fig:tasas_crudas}.
+    \item \textbf{Justificación metodológica:} Esta distribución de exposición justifica plenamente:
+    \begin{itemize}
+        \item El uso de graduación WH en edades 20-84 (alta exposición)
+        \item La necesidad de extrapolación HP para edades 85+ (baja exposición, alta volatilidad)
+    \end{itemize}
+\end{itemize}
+
+\clearpage
 
 \textbf{Graduación Whittaker-Henderson:}
 
@@ -242,6 +313,16 @@ La tabla completa se presenta en las siguientes páginas. Incluye:\begin{itemize
 \label{fig:graduacion_log}
 \end{figure}
 
+\textbf{Análisis en escala logarítmica:}
+
+La representación logarítmica permite apreciar mejor el ajuste en edades jóvenes y patrones específicos:
+
+\begin{itemize}
+    \item \textbf{``Accident hump'' capturado:} Se observa y captura correctamente el pequeño aumento de mortalidad alrededor de 35-40 años, característico de población masculina (accidentes, causas externas).
+    \item \textbf{Linealidad post-40 años:} En escala logarítmica, el crecimiento es aproximadamente lineal después de los 40 años, lo cual es consistente con la ley de Gompertz ($\ln(q_x) \propto x$).
+    \item \textbf{Ajuste en edades jóvenes:} La escala logarítmica revela que el ajuste WH es adecuado incluso en las edades menores donde las tasas son muy bajas.
+\end{itemize}
+
 \textbf{Análisis de residuos:}
 
 \begin{figure}[H]
@@ -251,4 +332,15 @@ La tabla completa se presenta en las siguientes páginas. Incluye:\begin{itemize
 \label{fig:residuos}
 \end{figure}
 
-Los residuos se distribuyen aleatoriamente alrededor de cero dentro de [-2, 2], confirmando calidad del ajuste.
+\textbf{Evaluación de residuos estandarizados:}
+
+El análisis de residuos confirma la calidad estadística del ajuste Whittaker-Henderson:
+
+\begin{itemize}
+    \item \textbf{Distribución general:} La mayoría de los residuos se encuentran dentro del intervalo $[-2, +2]$ desviaciones estándar, indicando un ajuste estadísticamente aceptable.
+    \item \textbf{Outlier identificado:} Se observa un punto alrededor de edad 65-67 años que supera ligeramente el umbral de +2 desviaciones ($\sim$3), indicando que el modelo subestima levemente la mortalidad observada en esa edad específica.
+    \item \textbf{Ausencia de patrón sistemático:} Los residuos oscilan aleatoriamente alrededor de cero sin mostrar tendencias sistemáticas, confirmando que no existe sesgo estructural en el ajuste.
+    \item \textbf{Conclusión:} El ajuste WH es estadísticamente aceptable. El outlier en edad 65-67 podría investigarse para identificar factores específicos (por ejemplo, cohorte particular con mayor mortalidad), pero no compromete la validez global del modelo.
+\end{itemize}
+
+\clearpage
