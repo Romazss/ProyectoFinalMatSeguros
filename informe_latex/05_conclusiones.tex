@@ -1,101 +1,50 @@
 % ============================================================================
-% SECCIÓN 5: CONCLUSIONES Y REFERENCIAS
+% CONCLUSIONES
 % ============================================================================
 
 \section{Conclusiones}
 
-\subsection{Principales Hallazgos}
+\subsection{Hallazgos Principales}
 
-\subsubsection{Construcción de la Tabla de Mortalidad}
-
-El proceso de construcción de la tabla de mortalidad arrojó resultados satisfactorios:
+\subsubsection{Construcción de la Tabla}
 
 \begin{itemize}
-    \item \textbf{Calidad de datos:} Se procesó una base de 365,898 registros, de los cuales 360,441 cumplieron los criterios de inclusión (98.5\% de retención). La exposición total alcanzó 4,471,045 años-persona con 28,510 muertes observadas, proporcionando una muestra robusta para el análisis.
-    
-    \item \textbf{Graduación exitosa:} Los tests de bondad de ajuste validaron la graduación Whittaker-Henderson. El test Chi-cuadrado (p=0.9959) y Kolmogorov-Smirnov (p=0.9912) no rechazaron la hipótesis nula. El test de Rachas (p=0.0081) detectó un leve patrón sistemático, atribuible a la suavización inherente del método.
-    
-    \item \textbf{Extrapolaciones adecuadas:} La combinación de Oppermann (0-19 años) y Heligman-Pollard (85-109 años) permitió completar la tabla manteniendo coherencia con los patrones de mortalidad infantil y senil.
-    
-    \item \textbf{Mortalidad inferior a MI2014:} La tabla obtenida muestra sistemáticamente menor mortalidad que la referencia MI2014, reflejando características específicas de la población de inválidos analizada.
-    
-    \item \textbf{Esperanzas de vida:} $e_0=18.88$ años en la tabla obtenida vs. valores más conservadores en MI2014, confirmando la mayor supervivencia observada.
+    \item Base de 360,441 registros con 28,510 muertes (período 2000-2012)
+    \item Graduación WH validada: Chi-cuadrado (p=0.9959), KS (p=0.9912), ajuste excelente
+    \item Extrapolaciones:
+    \begin{itemize}
+        \item Cabeza: Oppermann (0-9 años) y Heligman-Pollard (10-19 años)
+        \item Factor de empalme: $C = q_{10}^{HP} / q_{10}^{Oppermann}$
+        \item Cola: Heligman-Pollard (85-109 años)
+    \end{itemize}
+    \item Mortalidad inferior a MI2014 en toda la tabla
 \end{itemize}
 
 \subsubsection{Valores de Conmutación}
 
-El cálculo de las funciones de conmutación se implementó exitosamente:
-
 \begin{itemize}
-    \item \textbf{Implementación correcta:} Se verificaron todas las relaciones recursivas entre funciones ($N_x$, $S_x$, $M_x$) y las condiciones finales en $\omega = 109$ años, confirmando la consistencia numérica.
-    
-    \item \textbf{Diferencias sistemáticas:} La tabla obtenida presenta valores $D_x$ y $N_x$ consistentemente superiores a MI2014 en edades intermedias, reflejando la mayor supervivencia. Por ejemplo, $N_{25}^{obtenida}=51,882,046$ vs. $N_{25}^{MI2014}=38,384,144$ (+35.2\%).
-    
-    \item \textbf{Implicaciones actuariales:} Las funciones de conmutación facilitan el cálculo rápido de valores actuales, evidenciando que productos de supervivencia serán sistemáticamente más costosos con la tabla obtenida, mientras que seguros de muerte resultarán más económicos.
+    \item Funciones calculadas correctamente ($D_x$, $N_x$, $S_x$, $C_x$, $M_x$)
+    \item Relaciones recursivas verificadas, condiciones finales en $\omega=109$ satisfechas
+    \item Valores sistemáticamente superiores vs. MI2014 (ej: $N_{25}$ +35\%)
 \end{itemize}
 
 \subsubsection{Valores Actuales}
 
-El análisis de valores actuales reveló diferencias significativas entre tablas:
-
 \begin{itemize}
-    \item \textbf{Mayores diferenciales:} Las rentas diferidas muestran los diferenciales más elevados (+115\% promedio), seguidas por el dotal puro (+58\% promedio). Las rentas temporales presentan diferencias moderadas (+18\% promedio).
-    
-    \item \textbf{Patrón sistemático:} La tabla obtenida genera valores actuales sistemáticamente superiores para productos de supervivencia (14 de 15 valores mayores), con una sola excepción en renta temporal diferida a edad 90 (-2.52\%).
-    
-    \item \textbf{Coherencia teórica:} Los resultados son consistentes con la teoría: menor mortalidad implica mayor probabilidad de supervivencia, elevando el costo de anualidades y rentas vitalicias. Los productos con diferimiento muestran mayores diferencias por el efecto acumulativo temporal.
-    
-    \item \textbf{Implicaciones prácticas:} Una aseguradora que utilice MI2014 para tarifar productos de supervivencia en esta población estaría subvaluando sistemáticamente el riesgo, generando potenciales pérdidas. Se recomienda ajustar primas considerando las características específicas de mortalidad observada.
-\end{itemize}
-
-\subsection{Análisis Crítico del Proceso}
-
-\subsubsection{Fortalezas del Estudio}
-
-El análisis realizado presenta diversas fortalezas metodológicas:
-
-\begin{itemize}
-    \item \textbf{Período extenso:} 13 años de observación (2000-2012) con más de 4.4 millones de años-persona de exposición, proporcionando estabilidad estadística.
-    
-    \item \textbf{Métodos probados:} Aplicación del método Whittaker-Henderson para graduación (20-84 años), complementado con Oppermann y Heligman-Pollard para extrapolaciones, todos ampliamente validados en literatura actuarial.
-    
-    \item \textbf{Validación rigurosa:} Cuatro tests estadísticos independientes (Chi-cuadrado, Kolmogorov-Smirnov, Rachas, Signos) confirman la calidad del ajuste desde perspectivas complementarias.
-    
-    \item \textbf{Comparación sistemática:} Análisis exhaustivo de 15 valores actuales contra tabla de referencia MI2014, cuantificando diferencias y proporcionando contexto interpretativo.
-    
-    \item \textbf{Cálculo completo:} Implementación integral de funciones de conmutación ($D_x$, $N_x$, $S_x$, $C_x$, $M_x$) y valores actuales para 5 productos actuariales representativos.
-\end{itemize}
-
-\subsubsection{Limitaciones y Desafíos}
-
-Es importante reconocer las limitaciones inherentes al análisis:
-
-\begin{itemize}
-    \item \textbf{Datos en edades extremas:} La exposición en edades 0-19 y 85+ es limitada, requiriendo extrapolaciones que introducen incertidumbre. La confiabilidad disminuye en estos rangos.
-    
-    \item \textbf{Temporalidad de datos:} El período 2000-2012 podría no capturar mejoras recientes en mortalidad por invalidez. Cambios en tratamientos médicos, normativas de seguridad y estilo de vida pueden haber alterado los patrones.
-    
-    \item \textbf{Supuestos de graduación:} El método Whittaker-Henderson asume suavidad en la curva de mortalidad, potencialmente enmascarando discontinuidades reales en rangos específicos.
-    
-    \item \textbf{Incertidumbre paramétrica:} Las extrapolaciones de Oppermann y Heligman-Pollard dependen de ajustes paramétricos con múltiples soluciones posibles, afectando la unicidad de resultados.
-    
-    \item \textbf{Especificidad poblacional:} Los resultados aplican a la población específica de inválidos analizada. La generalización a otras poblaciones o tipos de invalidez requiere validación adicional.
+    \item Rentas diferidas: diferenciales hasta +115\% promedio
+    \item Dotal puro: +58\% promedio
+    \item Rentas temporales: +18\% promedio
+    \item Tabla obtenida genera valores sistemáticamente mayores (14 de 15 casos)
+    \item MI2014 subvalúa productos de supervivencia para esta población
 \end{itemize}
 
 \subsection{Implicaciones Actuariales}
 
-\subsubsection{Para la Gestión de Riesgos}
-
-Los hallazgos tienen implicaciones directas para la gestión actuarial:
-
 \begin{itemize}
-    \item \textbf{Tarifación de primas:} El uso de MI2014 subestima sistemáticamente el costo de productos de supervivencia en esta población. Se requiere ajuste de primas del orden de +18\% a +115\% según producto para mantener equilibrio actuarial.
-    
-    \item \textbf{Reservas técnicas:} Las reservas matemáticas para rentas vitalicias serían subestimadas con MI2014, generando insuficiencia patrimonial. La diferencia promedio de +58\% en dotales puros sugiere necesidad de fortalecimiento de reservas.
-    
-    \item \textbf{Riesgo de longevidad:} La población de inválidos muestra mayor longevidad que la esperada por MI2014, incrementando el riesgo de longevidad. Las aseguradoras deben provisionar este riesgo sistémico en carteras de rentas vitalicias.
-    
-    \item \textbf{Actualización continua:} La dinámica temporal de la mortalidad por invalidez requiere revisión periódica (cada 3-5 años) de las tablas para mantener relevancia y evitar des-calibración de productos.
+    \item \textbf{Primas:} MI2014 subestima costo de productos de supervivencia (+18\% a +115\% según producto)
+    \item \textbf{Reservas:} Necesidad de ajuste patrimonial para rentas vitalicias
+    \item \textbf{Riesgo de longevidad:} Mayor supervivencia requiere provisiones adicionales
+    \item \textbf{Actualización:} Revisión periódica (3-5 años) de tablas recomendada
 \end{itemize}
 
 \subsubsection{Para la Política de Productos}
@@ -112,110 +61,39 @@ Los resultados orientan decisiones estratégicas sobre cartera de productos:
     \item \textbf{Rentabilidad por línea:} Los productos temporales (diferencial +18\%) presentan menor sensibilidad y riesgo, siendo más predecibles en rentabilidad. Las rentas vitalicias requieren márgenes de seguridad mayores por su exposición prolongada al riesgo de longevidad.
 \end{itemize}
 
-\subsection{Recomendaciones}
-
-\subsubsection{Para Estudios Futuros}
-
-\begin{enumerate}
-    \item \textbf{Actualización de datos:} Incorporar datos más recientes (post-2012) para capturar tendencias actuales de mortalidad.
-    
-    \item \textbf{Análisis de sensibilidad:} Evaluar el impacto de diferentes parámetros de graduación y métodos de extrapolación.
-    
-    \item \textbf{Segmentación adicional:} Considerar otras variables como nivel de invalidez, región geográfica, nivel socioeconómico.
-    
-    \item \textbf{Modelos estocásticos:} Implementar modelos de mortalidad estocástica para cuantificar incertidumbre.
-    
-    \item \textbf{Validación externa:} Comparar con otras fuentes de datos de mortalidad por invalidez.
-\end{enumerate}
-
-\subsubsection{Para la Práctica Actuarial}
-
-\begin{enumerate}
-    \item \textbf{Monitoreo continuo:} Implementar sistemas de seguimiento de la experiencia real vs. esperada.
-    
-    \item \textbf{Márgenes de prudencia:} Incorporar márgenes adecuados en función de la incertidumbre observada.
-    
-    \item \textbf{Diversificación:} Gestionar el riesgo mediante diversificación de cartera.
-    
-    \item \textbf{Comunicación transparente:} Documentar y comunicar supuestos y limitaciones de las tablas utilizadas.
-\end{enumerate}
-
-\subsection{Reflexiones Finales}
-
-[COMPLETAR: Reflexión final sobre el aprendizaje obtenido:
+\subsection{Limitaciones}
 
 \begin{itemize}
-    \item Importancia de la construcción rigurosa de tablas de mortalidad
-    \item Relevancia de la comparación con estándares de la industria
-    \item Conexión entre teoría actuarial y práctica profesional
-    \item Valor del análisis crítico y validación estadística
-    \item Consideraciones éticas en el uso de tablas de mortalidad
+    \item Exposición limitada en edades extremas (0-19 y 85+) requiere extrapolaciones
+    \item Datos del período 2000-2012 podrían no reflejar mejoras recientes
+    \item Especificidad poblacional: resultados aplicables a población analizada
+    \item Método WH asume suavidad, puede enmascarar discontinuidades reales
 \end{itemize}
-]
-
-% ----------------------------------------------------------------------------
-\section{Referencias}
-
-\subsection{Fuentes de Datos}
-
-\begin{itemize}
-    \item Base de datos: \texttt{Base\_act.RData} - Datos de población asegurada (2000-2012)
-    \item Tabla de referencia: INVALIDEZ 2014 - Masculino (MI2014)
-    \item Superintendencia de Pensiones de Chile - Tablas de mortalidad oficiales
-\end{itemize}
-
-\subsection{Bibliografía Metodológica}
-
-\begin{enumerate}
-    \item \textbf{Bowers, N. L., et al.} (1997). \textit{Actuarial Mathematics}. Society of Actuaries, 2nd Edition.
-    
-    \item \textbf{Dickson, D. C., Hardy, M. R., \& Waters, H. R.} (2009). \textit{Actuarial Mathematics for Life Contingent Risks}. Cambridge University Press.
-    
-    \item \textbf{London, D.} (1988). \textit{Survival Models and their Estimation}. ACTEX Publications, 3rd Edition.
-    
-    \item \textbf{Forfar, D. O., McCutcheon, J. J., \& Wilkie, A. D.} (1988). On graduation by mathematical formula. \textit{Journal of the Institute of Actuaries}, 115(1), 1-149.
-    
-    \item \textbf{Benjamin, B., \& Pollard, J. H.} (1993). \textit{The Analysis of Mortality and Other Actuarial Statistics}. Institute and Faculty of Actuaries, 3rd Edition.
-\end{enumerate}
-
-\subsection{Software y Herramientas}
-
-\begin{itemize}
-    \item \textbf{R Core Team} (2025). R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria.
-    
-    \item \textbf{RStudio Team} (2025). RStudio: Integrated Development Environment for R. RStudio, PBC., Boston, MA.
-    
-    \item Paquetes de R utilizados:
-    \begin{itemize}
-        \item \texttt{dplyr} - Manipulación de datos
-        \item \texttt{ggplot2} - Visualización de datos
-        \item \texttt{tidyr} - Limpieza y organización de datos
-        \item \texttt{readr} - Lectura de archivos CSV
-        \item Otros paquetes específicos según implementación
-    \end{itemize}
-\end{itemize}
-
-\subsection{Normativa y Regulación}
-
-\begin{itemize}
-    \item Superintendencia de Pensiones de Chile - Normativa sobre Tablas de Mortalidad
-    \item Normas de Carácter General N° 211 - Tablas de Mortalidad para Seguros de Invalidez
-    \item Circular N° 2197 - Sobre uso de tablas biométricas
-\end{itemize}
-
-% ----------------------------------------------------------------------------
 \subsection*{Anexos}
 
 \textbf{Material complementario disponible en el repositorio del proyecto:}
 
 \begin{itemize}
-    \item \texttt{C\_Optimizadosycompletos.R} - Script principal de análisis
+    \item \texttt{trabajo\_final.r} - Script principal de análisis
     \item \texttt{tabla\_mortalidad\_obtenida.csv} - Tabla completa construida
     \item \texttt{tasas\_crudas.csv} - Tasas brutas calculadas
     \item \texttt{tabla\_referencia\_MI2014.csv} - Tabla de referencia
     \item \texttt{datos\_graduacion.csv} - Datos del proceso de graduación
     \item Carpeta \texttt{imagenes/} - Gráficos y visualizaciones generadas
 \end{itemize}
+
+\textbf{Paquetes de R utilizados:}
+\begin{itemize}
+    \item Wickham H, et al. (2019). \textit{tidyverse: Easily Install and Load the 'Tidyverse'}. R package version 1.3.0.
+    \item Grolemund G, Wickham H (2011). \textit{lubridate: Make Dealing with Dates a Little Easier}. R package.
+    \item \textit{MortalityTables}: Tablas de mortalidad y graduación. R package.
+    \item \textit{MortalityLaws}: Modelos de mortalidad y extrapolación. R package.
+    \item \textit{randtests}: Tests estadísticos no paramétricos. R package.
+    \item \textit{BSDA}: Basic Statistics and Data Analysis. R package.
+    \item \textit{tseries}: Time Series Analysis and Computational Finance. R package.
+\end{itemize}
+
+\textbf{Nota sobre uso de IA:} Parte del código de este proyecto fue asistido mediante herramientas de inteligencia artificial para optimización y depuración.
 
 % ----------------------------------------------------------------------------
 \vspace{1cm}
@@ -233,6 +111,6 @@ Los resultados orientan decisiones estratégicas sobre cartera de productos:
 
 \vspace{0.2cm}
 
-\textcolor{celesteprincipal}{Diciembre 2025}
+\textcolor{celesteprincipal}{Diciembre 2020}
 \end{tcolorbox}
 \end{center}

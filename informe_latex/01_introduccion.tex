@@ -4,97 +4,49 @@
 
 \section{Introducción}
 
-\subsection{Contexto del Proyecto}
+\subsection{Especificaciones del Proyecto}
 
-El presente informe corresponde al proyecto final de la asignatura \textbf{EYP2605 - Matemáticas Actuariales}, desarrollado durante noviembre de 2025. El objetivo principal es construir una tabla de mortalidad utilizando datos reales de la población asegurada, aplicando técnicas de graduación y extrapolación estudiadas durante el curso.
+El presente informe corresponde al proyecto final de la asignatura \textbf{Introducción a la Matemática de Seguros}, desarrollado durante noviembre y diciembre de 2020.
 
-\subsection{Datos y Especificaciones del Proyecto}
-
-Los parámetros asignados para este proyecto son:
+\textbf{Autores:}
+\begin{itemize}
+    \item Juan Pablo Cuevas Barraza
+    \item Esteban Román Soto
+\end{itemize}
 
 \begin{hallazgobox}
-\textbf{Especificaciones del Proyecto:}
+\textbf{Parámetros Asignados:}
 \begin{itemize}
-    \item \textbf{Tabla Asignada:} INVALIDEZ 2014 - Masculino
-    \item \textbf{Origen:} 2 (Origen = 2)
-    \item \textbf{Sexo:} Masculino (TM\_SEXO = M)
+    \item \textbf{Tabla de Referencia:} INVALIDEZ 2014 - Masculino
+    \item \textbf{Criterios de Selección:} Origen = 2, Sexo = Masculino
     \item \textbf{Período de Análisis:} 01/01/2000 -- 31/12/2012
     \item \textbf{Tasa de Interés Técnico:} 5\% anual
+    \item \textbf{Raíz de la Tabla:} $l_{10} = 10.000.000$
 \end{itemize}
 \end{hallazgobox}
 
-\subsection{Objetivos del Informe}
+\subsection{Estructura del Trabajo}
 
-Este proyecto se estructura en tres componentes principales, cada uno con su ponderación respectiva:
-
-\begin{enumerate}
-    \item \textbf{Construcción de Tabla de Mortalidad (60\%):}
-    \begin{itemize}
-        \item Obtención del cuerpo de la tabla mediante graduación
-        \item Análisis del período 2000-2012
-        \item Graduación con evaluación de bondad de ajuste
-        \item Extrapolación para completar cabeza y cola
-        \item Construcción de tabla completa con esperanza de vida
-    \end{itemize}
-    
-    \item \textbf{Valores de Conmutación (10\%):}
-    \begin{itemize}
-        \item Cálculo de funciones de conmutación para la tabla obtenida
-        \item Cálculo de funciones de conmutación para la tabla de referencia
-        \item Uso de tasa de interés técnico del 5\%
-    \end{itemize}
-    
-    \item \textbf{Cálculo de Valores Actuales (30\%):}
-    \begin{itemize}
-        \item Dotal puro
-        \item Renta incierta vitalicia con pago vencido
-        \item Renta incierta vitalicia diferida con pago anticipado
-        \item Renta incierta temporal con pago vencido
-        \item Renta incierta temporal diferida con pago anticipado
-        \item Comparación entre tabla obtenida y tabla de referencia
-    \end{itemize}
-\end{enumerate}
-
-\subsection{Estructura del Informe}
-
-El documento se organiza de la siguiente manera:
-
-\begin{itemize}
-    \item \textbf{Sección 2:} Construcción de la tabla de mortalidad, incluyendo análisis de datos, graduación, extrapolación y tabla completa.
-    \item \textbf{Sección 3:} Cálculo de valores de conmutación para ambas tablas.
-    \item \textbf{Sección 4:} Cálculo de valores actuales y comparación de resultados.
-    \item \textbf{Sección 5:} Conclusiones y análisis de los hallazgos.
-\end{itemize}
-
-\subsection{Metodología}
-
-Para el desarrollo de este proyecto se utilizó el lenguaje de programación \textbf{R}, implementando un proceso estructurado en las siguientes etapas:
+El proyecto se divide en tres componentes con sus respectivas ponderaciones:
 
 \begin{enumerate}
-    \item \textbf{Preparación de datos:} Filtrado por Origen=2 y Sexo=M, conversión de fechas y limpieza de datos.
+    \item \textbf{Construcción de Tabla de Mortalidad (60\%):} Obtención del cuerpo mediante graduación, evaluación de bondad de ajuste, extrapolación de cabeza y cola, y construcción de tabla completa con esperanzas de vida.
     
-    \item \textbf{Cálculo de exposición:} Método actuarial con funciones \texttt{pmin/pmax} vectorizadas para cálculo eficiente de la exposición al riesgo.
+    \item \textbf{Valores de Conmutación (10\%):} Cálculo de funciones $D_x$, $N_x$, $S_x$, $C_x$, $M_x$ y $R_x$ para tabla obtenida y tabla de referencia.
     
-    \item \textbf{Suavizamiento:} Método Whittaker-Henderson aplicado en el rango 20-84 años.
-    
-    \item \textbf{Extrapolación edades jóvenes:} Método de Oppermann para edades 0-19 años.
-    
-    \item \textbf{Extrapolación edades avanzadas:} Método de Heligman-Pollard para edades 85-109 años.
-    
-    \item \textbf{Construcción de tabla de vida:} Cálculo de funciones biométricas ($q_x$, $l_x$, $d_x$, $e_x$) y funciones de conmutación ($D_x$, $N_x$, $S_x$, $C_x$, $M_x$, $R_x$).
-    
-    \item \textbf{Pruebas de bondad de ajuste:} Chi-cuadrado, Kolmogorov-Smirnov, Test de Rachas y Test de Signos.
-    
-    \item \textbf{Cálculo de valores actuales:} Para diversos productos de seguros y rentas.
+    \item \textbf{Cálculo de Valores Actuales (30\%):} Cálculo y comparación de valores actuales para cinco productos actuariales utilizando ambas tablas.
 \end{enumerate}
 
-\textbf{Librerías de R utilizadas:}
+\subsection{Herramientas y Metodología}
 
+El análisis se desarrolló utilizando \textbf{R} con las siguientes librerías principales:
 \begin{itemize}
-    \item \texttt{tidyverse}, \texttt{lubridate} — Manipulación y análisis de datos
-    \item \texttt{WH}, \texttt{MortalityTables} — Suavizamiento Whittaker-Henderson
-    \item \texttt{MortalityLaws} — Métodos de extrapolación
-    \item \texttt{randtests}, \texttt{BSDA}, \texttt{tseries} — Tests estadísticos de bondad de ajuste
+    \item \texttt{tidyverse}, \texttt{lubridate} — Manipulación de datos
+    \item \texttt{MortalityTables} — Graduación y tablas de mortalidad
+    \item \texttt{MortalityLaws} — Extrapolación (Oppermann y Heligman-Pollard)
+    \item \texttt{randtests}, \texttt{BSDA}, \texttt{tseries} — Tests estadísticos
 \end{itemize}
 
-El script principal se encuentra en: \texttt{C\_Optimizadosycompletos.R}
+\textbf{Script principal:} \texttt{trabajo\_final.r}
+
+\textbf{Nota:} Se utilizó inteligencia artificial para asistir en la generación de algunos códigos.

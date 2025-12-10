@@ -1,77 +1,19 @@
 % ============================================================================
-% SECCIÓN 4: CÁLCULO DE VALORES ACTUALES (30%)
+% SECCIÓN 3: CÁLCULO DE VALORES ACTUALES (30%)
 % ============================================================================
 
 \section{Cálculo de Valores Actuales}
 
-Esta sección corresponde al 30\% de la evaluación del proyecto. Se calculan diversos valores actuales utilizando tanto la tabla obtenida como la tabla de referencia MI2014, con una tasa de interés técnico del 5\%.
+Tasa de interés técnico: $i = 5\%$
 
 % ----------------------------------------------------------------------------
-\subsection{Fundamentos y Notación}
+\subsection{3.1 Dotal Puro}
 
-\subsubsection{Fórmulas Generales}
+\textbf{Definición:} Pago de 1 unidad monetaria si el asegurado sobrevive hasta edad 70.
 
-Las fórmulas utilizadas para cada tipo de valor actual son:
+\textbf{Fórmula:} ${}_{70-x}E_x = \frac{\Dx{70}}{\Dx{x}}$
 
-\begin{itemize}
-    \item \textbf{Valor actual de supervivencia (dotal puro):}
-    \begin{equation}
-    {}_{n}E_x = v^n \cdot \frac{\lx{x+n}}{\lx{x}} = \frac{\Dx{x+n}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta vitalicia vencida:}
-    \begin{equation}
-    a_x = \frac{\Nx{x+1}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta vitalicia anticipada:}
-    \begin{equation}
-    \ddot{a}_x = \frac{\Nx{x}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta vitalicia diferida vencida (desde edad $y$):}
-    \begin{equation}
-    {}_{|y-x}a_x = \frac{\Nx{y+1}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta vitalicia diferida anticipada (desde edad $y$):}
-    \begin{equation}
-    {}_{|y-x}\ddot{a}_x = \frac{\Nx{y}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta temporal vencida (hasta edad $y$):}
-    \begin{equation}
-    a_{x:\overline{n}|} = \frac{\Nx{x+1} - \Nx{y+1}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta temporal anticipada (hasta edad $y$):}
-    \begin{equation}
-    \ddot{a}_{x:\overline{n}|} = \frac{\Nx{x} - \Nx{y}}{\Dx{x}}
-    \end{equation}
-    
-    \item \textbf{Renta temporal diferida:}
-    \begin{equation}
-    {}_{|m}\ddot{a}_{x:\overline{n}|} = \frac{\Nx{x+m} - \Nx{x+m+n}}{\Dx{x}}
-    \end{equation}
-\end{itemize}
-
-% ----------------------------------------------------------------------------
-\subsection{Dotal Puro}
-
-\subsubsection{Definición}
-
-Un dotal puro paga 1 unidad monetaria si el asegurado sobrevive hasta la edad final especificada.
-
-\textbf{Edad final:} 70 años
-
-\subsubsection{Fórmula Utilizada}
-
-Para una persona de edad $x$ que sobrevive hasta edad 70:
-\begin{equation}
-{}_{70-x}E_x = \frac{\Dx{70}}{\Dx{x}}
-\end{equation}
-
-\subsubsection{Resultados}
+\textbf{Resultados:}
 
 \begin{table}[H]
 \centering
@@ -82,44 +24,23 @@ Para una persona de edad $x$ que sobrevive hasta edad 70:
 \tableheadercolor
 \textbf{Edad} & \textbf{Tabla referencia} & \textbf{Tabla obtenida} & \textbf{Diferencial \%} \\
 \midrule
-38 & 0.0837 & 0.1666 & +99.04\% \\
-54 & 0.2522 & 0.3836 & +52.10\% \\
-62 & 0.4866 & 0.5944 & +22.15\% \\
+38 & 0.0837 & 0.1684 & +101\% \\
+54 & 0.2522 & 0.3873 & +54\% \\
+62 & 0.4866 & 0.6036 & +24\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Fórmula implementada en R:}
-\begin{verbatim}
-E_x = D[70] / D[x]
-\end{verbatim}
-
-\textbf{Comentarios:}
-
-Los resultados del dotal puro muestran diferencias significativas entre ambas tablas:
-
-\begin{itemize}
-    \item \textbf{Patrón por edad:} El diferencial disminuye notablemente con la edad, desde +99.04\% a edad 38 hasta +22.15\% a edad 62. Esto indica que las diferencias de mortalidad entre tablas son más pronunciadas en edades medias.
-    
-    \item \textbf{Interpretación:} Los valores sistemáticamente mayores en la tabla obtenida indican una mayor probabilidad de supervivencia hasta los 70 años en la población estudiada, comparada con la tabla MI2014.
-    
-    \item \textbf{Implicaciones:} Para un asegurador, estos diferenciales positivos implican que el costo de un dotal puro sería mayor que el estimado con MI2014, requiriendo primas más altas o provisiones adicionales.
-\end{itemize}
+Diferencial disminuye con edad: +101\% (38) a +24\% (62). Mayor supervivencia en tabla obtenida.
 
 % ----------------------------------------------------------------------------
-\subsection{Renta Incierta Vitalicia con Pago Vencido}
+\subsection{3.2 Renta Vitalicia Vencida}
 
-\subsubsection{Definición}
+\textbf{Definición:} Pago de 1 unidad al final de cada año mientras el asegurado viva.
 
-Una renta vitalicia que paga 1 unidad al final de cada año mientras el asegurado viva.
+\textbf{Fórmula:} $a_x = \frac{\Nx{x+1}}{\Dx{x}}$
 
-\subsubsection{Fórmula Utilizada}
-
-\begin{equation}
-a_x = \frac{\Nx{x+1}}{\Dx{x}}
-\end{equation}
-
-\subsubsection{Resultados}
+\textbf{Resultados:}
 
 \begin{table}[H]
 \centering
@@ -130,286 +51,93 @@ a_x = \frac{\Nx{x+1}}{\Dx{x}}
 \tableheadercolor
 \textbf{Edad} & \textbf{Tabla referencia} & \textbf{Tabla obtenida} & \textbf{Diferencial \%} \\
 \midrule
-45 & 11.90 & 15.56 & +30.76\% \\
-60 & 9.58 & 12.14 & +26.72\% \\
-90 & 3.18 & 3.10 & -2.52\% \\
+45 & 11.90 & 15.58 & +31\% \\
+60 & 9.58 & 12.21 & +27\% \\
+90 & 3.18 & 3.10 & -2\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Fórmula implementada en R:}
-\begin{verbatim}
-a_x = N[x+1] / D[x]
-\end{verbatim}
-
-\textbf{Comentarios:}
-
-El análisis de la renta vitalicia vencida revela patrones interesantes:
-
-\begin{itemize}
-    \item \textbf{Diferencial por edad:} Los diferenciales son positivos y significativos para edades 45 (+30.76\%) y 60 (+26.72\%), pero ligeramente negativos a edad 90 (-2.52\%). Esto sugiere mayor longevidad en edades medias en la tabla obtenida, convergiendo en edades muy avanzadas.
-    
-    \item \textbf{Relación edad-valor:} Como es esperado, el valor actual disminuye con la edad debido a menor esperanza de vida remanente. Sin embargo, la tabla obtenida muestra valores consistentemente mayores en edades activas.
-    
-    \item \textbf{Implicación práctica:} Una compañía que use MI2014 subestimaría el costo de rentas vitalicias para personas de mediana edad, mientras que sobrestimaría levemente para nonagenarios.
-\end{itemize}
+Diferenciales +31\% (45) y +27\% (60), convergencia en edad 90 (-2\%). MI2014 subestimaría costo para edades medias.
 
 % ----------------------------------------------------------------------------
-\subsection{Renta Incierta Vitalicia Diferida con Pago Anticipado}
+\subsection{3.3 Renta Vitalicia Diferida (75 años) Anticipada}
 
-\subsubsection{Definición}
+\textbf{Definición:} Pago al inicio de cada año a partir de los 75 años, mientras el asegurado viva.
 
-Una renta vitalicia que comienza a pagarse al inicio de cada año a partir de los 75 años, mientras el asegurado viva.
+\textbf{Fórmula:} ${}_{|75-x}\ddot{a}_x = \frac{\Nx{75}}{\Dx{x}}$
 
-\textbf{Cuotas a partir de:} 75 años
-
-\subsubsection{Fórmula Utilizada}
-
-Para una persona de edad $x < 75$:
-\begin{equation}
-{}_{|75-x}\ddot{a}_x = \frac{\Nx{75}}{\Dx{x}}
-\end{equation}
-
-\subsubsection{Resultados}
+\textbf{Resultados:}
 
 \begin{table}[H]
 \centering
-\caption{Valores actuales de renta vitalicia diferida (75 años) con pago anticipado}
+\caption{Valores actuales de renta vitalicia diferida (75 años) anticipada}
 \label{tab:renta_diferida_75}
 \begin{tabular}{cccc}
 \toprule
 \tableheadercolor
 \textbf{Edad} & \textbf{Tabla referencia} & \textbf{Tabla obtenida} & \textbf{Diferencial \%} \\
 \midrule
-25 & 0.18 & 0.50 & +177.78\% \\
-40 & 0.44 & 1.07 & +143.18\% \\
-70 & 4.65 & 5.78 & +24.30\% \\
+25 & 0.1763 & 0.5043 & +186\% \\
+40 & 0.4418 & 1.0779 & +144\% \\
+70 & 4.6505 & 5.7763 & +24\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Fórmula implementada en R:}
-\begin{verbatim}
-a_x_diferida = N[75] / D[x]
-\end{verbatim}
-
-\textbf{Comentarios:}
-
-La renta vitalicia diferida muestra los diferenciales más dramáticos del análisis:
-
-\begin{itemize}
-    \item \textbf{Diferencias extremas en edades jóvenes:} Los diferenciales de +177.78\% (edad 25) y +143.18\% (edad 40) son los más altos observados. Esto refleja el doble efecto de mayor supervivencia hasta los 75 años Y mayor longevidad posterior.
-    
-    \item \textbf{Convergencia en edad 70:} El diferencial se reduce a +24.30\% cuando la edad está cerca del inicio de pagos (75 años), donde el factor de diferimiento es menor y predomina la mortalidad post-75.
-    
-    \item \textbf{Riesgo actuarial significativo:} Estos productos diferidos son especialmente sensibles a diferencias en las tablas de mortalidad. El uso de MI2014 subestimaría dramáticamente las reservas necesarias para asegurados jóvenes.
-\end{itemize}
+Diferenciales extremos en edades jóvenes: +186\% (25) y +144\% (40). Convergencia en edad 70 (+24\%). Doble efecto de supervivencia hasta 75 y longevidad posterior.
 
 % ----------------------------------------------------------------------------
-\subsection{Renta Incierta Temporal con Pago Vencido}
+\subsection{3.4 Renta Temporal Vencida (80 años)}
 
-\subsubsection{Definición}
+\textbf{Definición:} Pago al final de cada año mientras el asegurado viva, hasta cumplir 80 años máximo.
 
-Una renta que paga 1 unidad al final de cada año mientras el asegurado viva, hasta cumplir 80 años como máximo.
+\textbf{Fórmula:} $a_{x:\overline{80-x}|} = \frac{\Nx{x+1} - \Nx{81}}{\Dx{x}}$
 
-\textbf{Edad final:} 80 años
-
-\subsubsection{Fórmula Utilizada}
-
-Para una persona de edad $x < 80$:
-\begin{equation}
-a_{x:\overline{80-x}|} = \frac{\Nx{x+1} - \Nx{81}}{\Dx{x}}
-\end{equation}
-
-\subsubsection{Resultados}
+\textbf{Resultados:}
 
 \begin{table}[H]
 \centering
-\caption{Valores actuales de renta temporal vencida - Edad final 80 años}
+\caption{Valores actuales de renta temporal vencida (80 años)}
 \label{tab:renta_temporal_80}
 \begin{tabular}{cccc}
 \toprule
 \tableheadercolor
 \textbf{Edad} & \textbf{Tabla referencia} & \textbf{Tabla obtenida} & \textbf{Diferencial \%} \\
 \midrule
-25 & 14.55 & 17.65 & +21.31\% \\
-50 & 10.68 & 13.73 & +28.56\% \\
-75 & 3.05 & 3.22 & +5.57\% \\
+25 & 14.5519 & 17.6539 & +21\% \\
+50 & 10.6774 & 13.7411 & +29\% \\
+75 & 3.0520 & 3.2089 & +5\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Fórmula implementada en R:}
-\begin{verbatim}
-a_x_temporal = (N[x+1] - N[81]) / D[x]
-\end{verbatim}
-
-\textbf{Comentarios:}
-
-La renta temporal vencida (hasta 80 años) presenta diferenciales moderados:
-
-\begin{itemize}
-    \item \textbf{Patrón moderado y consistente:} Los diferenciales van desde +21.31\% (edad 25) hasta +5.57\% (edad 75), mostrando mayor consistencia que los productos vitalicios puros.
-    
-    \item \textbf{Efecto del límite temporal:} Al tener un horizonte de pagos acotado (máximo hasta 80 años), el producto es menos sensible a diferencias en longevidad extrema. Para edad 75, solo hay 5 años de pagos potenciales.
-    
-    \item \textbf{Menor riesgo:} El carácter temporal del producto reduce la exposición a riesgo de longevidad, resultando en diferenciales más manejables entre tablas. Esto hace que la elección de tabla tenga menor impacto crítico en pricing.
-\end{itemize}
+Diferenciales moderados: +21\% a +29\%. Límite temporal reduce sensibilidad a longevidad extrema.
 
 % ----------------------------------------------------------------------------
-\subsection{Renta Incierta Temporal Diferida con Pago Anticipado}
+\subsection{3.5 Renta Temporal Diferida Anticipada (58-70 años)}
 
-\subsubsection{Definición}
+\textbf{Fórmula:} $\ddot{a}_{x:\overline{70-x}|} = \frac{\Nx{x} - \Nx{70}}{\Dx{x}}$
 
-Una renta que comienza a pagarse al inicio de cada año mientras el asegurado viva, desde su edad actual hasta los 70 años como máximo.
-
-\textbf{Edad final:} 70 años (temporal hasta esta edad)
-
-\subsubsection{Fórmula Utilizada}
-
-Para una persona de edad $x < 70$:
-\begin{equation}
-\ddot{a}_{x:\overline{70-x}|} = \frac{\Nx{x} - \Nx{70}}{\Dx{x}}
-\end{equation}
-
-\subsubsection{Resultados}
+\textbf{Resultados:}
 
 \begin{table}[H]
 \centering
-\caption{Valores actuales de renta temporal diferida anticipada - Edad final 70 años}
+\caption{Valores actuales de renta temporal diferida anticipada (70 años)}
 \label{tab:renta_temporal_diferida_70}
 \begin{tabular}{cccc}
 \toprule
 \tableheadercolor
 \textbf{Edad} & \textbf{Tabla referencia} & \textbf{Tabla obtenida} & \textbf{Diferencial \%} \\
 \midrule
-32 & 7.04 & 9.86 & +40.06\% \\
-50 & 4.41 & 6.76 & +53.29\% \\
-68 & 0.68 & 0.85 & +25.00\% \\
+32 & 7.0423 & 9.8727 & +40\% \\
+50 & 4.4117 & 6.7819 & +54\% \\
+68 & 0.6835 & 0.8664 & +27\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Fórmula implementada en R:}
-\begin{verbatim}
-a_x_temporal_anticipada = (N[x] - N[70]) / D[x]
-\end{verbatim}
-
-\textbf{Comentarios:}
-
-La renta temporal diferida con pago anticipado (hasta 70 años, diferida 10 años) muestra diferenciales sustanciales:
-
-\begin{itemize}
-    \item \textbf{Diferencias significativas:} Los diferenciales oscilan entre +40.06\% y +53.29\%, siendo particularmente alto para edad 50 (+53.29\%). Esto refleja la combinación de diferimiento (10 años) y temporalidad acotada.
-    
-    \item \textbf{Edad 68 (caso límite):} Con solo 2 años de pagos potenciales (si sobrevive a 70), el diferencial es +25.00\%, aún significativo. Esto indica que incluso en horizontes cortos, las diferencias entre tablas impactan.
-    
-    \item \textbf{Pago anticipado:} El pago al inicio de cada período (vs. vencido) incrementa el valor actual, pero el patrón de diferenciales se mantiene. La tabla obtenida implica mayor probabilidad de alcanzar y atravesar el período de pagos.
-\end{itemize}
-
-% ----------------------------------------------------------------------------
-\subsection{Análisis Comparativo Global}
-
-\subsubsection{Resumen de Diferenciales}
-
-\begin{table}[H]
-\centering
-\caption{Resumen de diferenciales porcentuales promedio por producto}
-\label{tab:resumen_diferenciales}
-\begin{tabular}{lc}
-\toprule
-\tableheadercolor
-\textbf{Producto} & \textbf{Diferencial promedio \%} \\
-\midrule
-Dotal puro (70 años) & +57.76\% \\
-Renta vitalicia vencida & +18.32\% \\
-Renta diferida (75 años) anticipada & +115.09\% \\
-Renta temporal vencida (80 años) & +18.48\% \\
-Renta temporal diferida anticipada (70 años) & +39.45\% \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsubsection{Interpretación de Resultados}
-
-El análisis comparativo global revela patrones sistemáticos y significativos:
-
-\begin{hallazgobox}
-\textbf{Hallazgo Principal:} La tabla obtenida genera valores actuales sistemáticamente mayores que MI2014, con diferencias que varían según el tipo de producto y la edad del asegurado.
-\end{hallazgobox}
-
-\textbf{Patrón de diferencias por producto:}
-
-\begin{itemize}
-    \item \textbf{Mayor diferencial:} Renta vitalicia diferida (+115.09\% promedio) - El producto más sensible a diferencias de mortalidad de mediano y largo plazo.
-    
-    \item \textbf{Diferencial alto:} Dotal puro (+57.76\% promedio) - Refleja mayor supervivencia hasta edad específica.
-    
-    \item \textbf{Diferencial moderado:} Renta temporal diferida (+39.45\% promedio) - Balance entre diferimiento y horizonte acotado.
-    
-    \item \textbf{Diferencial bajo:} Rentas temporales y vitalicias simples (~18\% promedio) - Menor exposición a longevidad extrema.
-\end{itemize}
-
-\textbf{Dirección sistemática:}
-
-La tabla obtenida genera valores \textbf{consistentemente mayores} (excepto un caso marginal: edad 90 en renta vitalicia con -2.52\%). Esto indica que:
-
-\begin{itemize}
-    \item La población estudiada presenta \textbf{menor mortalidad} que la proyectada por MI2014
-    \item Existe \textbf{mayor probabilidad de supervivencia} en prácticamente todas las edades analizadas
-    \item El efecto es más pronunciado en \textbf{edades medias} (25-60 años)
-\end{itemize}
-
-\textbf{Implicaciones actuariales críticas:}
-
-\begin{enumerate}
-    \item \textbf{Fijación de primas:}
-    \begin{itemize}
-        \item Usar MI2014 resultaría en primas \textbf{sistemáticamente insuficientes}
-        \item El subfactoramiento oscila entre 18\% y 115\% según producto
-        \item Mayor riesgo en productos con diferimiento o supervivencia garantizada
-    \end{itemize}
-    
-    \item \textbf{Reservas técnicas:}
-    \begin{itemize}
-        \item Las reservas calculadas con MI2014 serían \textbf{inadecuadas}
-        \item Se requieren provisiones adicionales del orden de 20-115\% según cartera
-        \item Riesgo de insuficiencia patrimonial ante siniestros
-    \end{itemize}
-    
-    \item \textbf{Solvencia de la compañía:}
-    \begin{itemize}
-        \item Uso de MI2014 podría generar \textbf{deterioro patrimonial progresivo}
-        \item Mayor exposición a riesgo de longevidad no provisionado
-        \item Necesidad de capital adicional para absorber desviaciones
-    \end{itemize}
-\end{enumerate}
-
-\textbf{Causas potenciales de las diferencias:}
-
-\begin{itemize}
-    \item \textbf{Período de observación (2000-2012):} La experiencia observada puede reflejar mejoras de mortalidad no capturadas en MI2014, publicada en 2014 pero basada en datos anteriores.
-    
-    \item \textbf{Características poblacionales:} Aunque ambas son tablas de invalidez, puede haber diferencias en:
-    \begin{itemize}
-        \item Tipo y severidad de invalidez
-        \item Selección adversa o antiselección
-        \item Nivel socioeconómico de los asegurados
-        \item Acceso a tratamientos médicos
-    \end{itemize}
-    
-    \item \textbf{Métodos de construcción:} Diferencias en técnicas de graduación, extrapolación y suavizamiento pueden generar discrepancias, especialmente en edades extremas.
-    
-    \item \textbf{Tamaño y calidad de muestra:} La base de datos observada puede tener características específicas no representativas de la población general de inválidos.
-    
-    \item \textbf{Tendencia secular:} Mejoras generales en salud pública, medicina y calidad de vida que reducen mortalidad por invalidez.
-\end{itemize}
-
-\begin{notabox}
-\textbf{Recomendación actuarial:} Dada la magnitud sistemática de las diferencias, se recomienda fuertemente utilizar la tabla obtenida (o al menos aplicar factores de ajuste a MI2014) para la tarificación y provisioning de esta cartera específica.
-\end{notabox}
-
-\subsubsection{Gráficos Comparativos}
+Diferenciales entre +27\% y +54\%. Combinación de diferimiento y temporalidad genera sensibilidad moderada-alta.
 
 [COMPLETAR: Insertar gráficos que muestren visualmente las diferencias entre tabla obtenida y referencia para cada producto]
 

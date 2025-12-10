@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.3)  9 DEC 2025 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.3)  10 DEC 2025 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,6 +667,19 @@ LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported  on input line 11.
+
+
+LaTeX Warning: Label `fig:tasas_crudas' multiply defined.
+
+
+LaTeX Warning: Label `fig:tasas_crudas@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:graduacion_wh' multiply defined.
+
+
+LaTeX Warning: Label `fig:graduacion_wh@cref' multiply defined.
+
 )
 \openout1 = `informe_principal.aux'.
 
@@ -739,16 +752,16 @@ Package hyperref Info: Link coloring ON on input line 28.
 \@outlinefile=\write4
 \openout4 = `informe_principal.out'.
 
-<Imagenes/logo_uc.png, id=171, 258.9675pt x 148.555pt>
+<Imagenes/logo_uc.png, id=103, 258.9675pt x 148.555pt>
 File: Imagenes/logo_uc.png Graphic file (type png)
 <use Imagenes/logo_uc.png>
 Package pdftex.def Info: Imagenes/logo_uc.png  used on input line 40.
 (pdftex.def)             Requested size: 130.65443pt x 74.9528pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
  (c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
  (c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -758,241 +771,169 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc} <./Imagenes/logo_uc.png>] (./informe_principal.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-
-
-<Imagenes/logo_kovan.jpg, id=258, 266.9975pt x 368.37625pt>
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 80.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.80 ...graf√≠a Metodol√≥gica}{24}{subsection.6.2}
-                                                  % [1 <./Imagenes/logo_kovan.jpg>])
+)
 \tf@toc=\write5
 \openout5 = `informe_principal.toc'.
 
 
 
-[2] (./01_introduccion.tex
 
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.108 \newpage
+               [1] (./01_introduccion.tex
+Overfull \hbox (4.87169pt too wide) in paragraph at lines 9--10
+[]\T1/ptm/m/n/12 El pre-sente in-forme cor-re-sponde al proyec-to fi-nal de la asig-natu-ra \T1/ptm/b/n/12 In-tro-duc-ciÛn a la Matem·ti-
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 44.
+(c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)) (./02_construccion_tabla.tex
+
+<Imagenes/logo_kovan.jpg, id=164, 266.9975pt x 368.37625pt>
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 58.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 10.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \subsection{Estructura del Informe}
-                                         [1]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 76.
- (c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) (./02_construccion_tabla.tex
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 17.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.17     \item \textbf
-                      {Origen:} 2 [2]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 80.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[3]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 138.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[4]
-<Imagenes/04_datos_referencia_0_9.png, id=313, 578.16pt x 361.35pt>
-File: Imagenes/04_datos_referencia_0_9.png Graphic file (type png)
-<use Imagenes/04_datos_referencia_0_9.png>
-Package pdftex.def Info: Imagenes/04_datos_referencia_0_9.png  used on input line 172.
-(pdftex.def)             Requested size: 373.30144pt x 233.31433pt.
+l.10 ...ubsection{Insumos y Per√≠odo de An√°lisis}
+                                                   [1 <./Imagenes/logo_kovan.jpg>]
+<Imagenes/01_tasa_bruta_mortalidad.png, id=177, 722.7pt x 433.62pt>
+File: Imagenes/01_tasa_bruta_mortalidad.png Graphic file (type png)
+<use Imagenes/01_tasa_bruta_mortalidad.png>
+Package pdftex.def Info: Imagenes/01_tasa_bruta_mortalidad.png  used on input line 50.
+(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
 
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 176.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 61.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[5]
-<Imagenes/05_extrapolacion_completa.png, id=322, 722.7pt x 433.62pt>
-File: Imagenes/05_extrapolacion_completa.png Graphic file (type png)
-<use Imagenes/05_extrapolacion_completa.png>
-Package pdftex.def Info: Imagenes/05_extrapolacion_completa.png  used on input line 189.
-(pdftex.def)             Requested size: 396.63411pt x 237.98227pt.
+[2 <./Imagenes/01_tasa_bruta_mortalidad.png>]
+<Imagenes/02_graduacion_whittaker.png, id=187, 722.7pt x 433.62pt>
+File: Imagenes/02_graduacion_whittaker.png Graphic file (type png)
+<use Imagenes/02_graduacion_whittaker.png>
+Package pdftex.def Info: Imagenes/02_graduacion_whittaker.png  used on input line 85.
+(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
 
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 197.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[6 <./Imagenes/04_datos_referencia_0_9.png> <./Imagenes/05_extrapolacion_completa.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
-[]\T1/ptm/b/n/12 Nota: \T1/ptm/m/n/12 La tabla com-ple-ta se en-cuen-tra en el archi-vo:
- []
-
-<Imagenes/01_tasa_mortalidad_general.png, id=330, 578.16pt x 361.35pt>
-File: Imagenes/01_tasa_mortalidad_general.png Graphic file (type png)
-<use Imagenes/01_tasa_mortalidad_general.png>
-Package pdftex.def Info: Imagenes/01_tasa_mortalidad_general.png  used on input line 244.
-(pdftex.def)             Requested size: 396.63411pt x 247.89268pt.
-
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 248.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[7]
-<Imagenes/02_tasa_mortalidad_WH.png, id=342, 578.16pt x 361.35pt>
-File: Imagenes/02_tasa_mortalidad_WH.png Graphic file (type png)
-<use Imagenes/02_tasa_mortalidad_WH.png>
-Package pdftex.def Info: Imagenes/02_tasa_mortalidad_WH.png  used on input line 253.
-(pdftex.def)             Requested size: 396.63411pt x 247.89268pt.
-<Imagenes/03_tasa_mortalidad_WH_MortalityTables.png, id=344, 578.16pt x 361.35pt>
-File: Imagenes/03_tasa_mortalidad_WH_MortalityTables.png Graphic file (type png)
-<use Imagenes/03_tasa_mortalidad_WH_MortalityTables.png>
-Package pdftex.def Info: Imagenes/03_tasa_mortalidad_WH_MortalityTables.png  used on input line 262.
-(pdftex.def)             Requested size: 396.63411pt x 247.89268pt.
-
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 266.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[8 <./Imagenes/01_tasa_mortalidad_general.png> <./Imagenes/02_tasa_mortalidad_WH.png>]) (./03_conmutacion.tex
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 14.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[9 <./Imagenes/03_tasa_mortalidad_WH_MortalityTables.png>]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 76.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[10]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 127.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[11]) (./04_valores_actuales.tex
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 30.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[12]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 91.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[13]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 147.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[14]
-Overfull \hbox (20.51949pt too wide) in paragraph at lines 150--151
-[]\T1/ptm/b/n/12 Diferencial por edad: \T1/ptm/m/n/12 Los difer-en-ciales son pos-i-tivos y sig-ni-fica-tivos para edades 45 (+30.76$ $%)
- []
-
-
-Overfull \hbox (1.31996pt too wide) in paragraph at lines 150--151
-\T1/ptm/m/n/12 y 60 (+26.72$ $%), pero lig-er-a-mente neg-a-tivos a edad 90 (-2.52$ $%). Es-to sug-iere may-or longev-
+Overfull \hbox (7.92395pt too wide) in paragraph at lines 112--113
+[]\T1/ptm/b/n/12 Chi-cuadrado: \T1/ptm/m/n/12 Con-fir-ma con-sis-ten-cia en-tre fre-cuen-cias ob-ser-vadas y grad-u-adas (p = 0.9959). 
  []
 
 
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 204.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 113.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[15]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 266.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[16]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 332.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[17]
-
-File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
-<use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 382.
-(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[18]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 395.
+[3 <./Imagenes/02_graduacion_whittaker.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 130.
  (c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-))
+)
+<Imagenes/04_tabla_mortalidad_completa.png, id=198, 867.24pt x 433.62pt>
+File: Imagenes/04_tabla_mortalidad_completa.png Graphic file (type png)
+<use Imagenes/04_tabla_mortalidad_completa.png>
+Package pdftex.def Info: Imagenes/04_tabla_mortalidad_completa.png  used on input line 179.
+(pdftex.def)             Requested size: 396.63411pt x 198.31635pt.
+
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 124.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 183.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[19] (./05_conclusiones.tex
+[4]
+<Imagenes/05_tabla_mortalidad_log.png, id=211, 867.24pt x 433.62pt>
+File: Imagenes/05_tabla_mortalidad_log.png Graphic file (type png)
+<use Imagenes/05_tabla_mortalidad_log.png>
+Package pdftex.def Info: Imagenes/05_tabla_mortalidad_log.png  used on input line 188.
+(pdftex.def)             Requested size: 396.63411pt x 198.31635pt.
+
+
+File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
+<use Imagenes/logo_kovan.jpg>
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 207.
+(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
+[5 <./Imagenes/04_tabla_mortalidad_completa.png> <./Imagenes/05_tabla_mortalidad_log.png>]
+File: Imagenes/01_tasa_bruta_mortalidad.png Graphic file (type png)
+<use Imagenes/01_tasa_bruta_mortalidad.png>
+Package pdftex.def Info: Imagenes/01_tasa_bruta_mortalidad.png  used on input line 224.
+(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
+File: Imagenes/02_graduacion_whittaker.png Graphic file (type png)
+<use Imagenes/02_graduacion_whittaker.png>
+Package pdftex.def Info: Imagenes/02_graduacion_whittaker.png  used on input line 233.
+(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
+
+
+File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
+<use Imagenes/logo_kovan.jpg>
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 237.
+(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
+[6]
+<Imagenes/03_graduacion_whittaker_log.png, id=224, 722.7pt x 433.62pt>
+File: Imagenes/03_graduacion_whittaker_log.png Graphic file (type png)
+<use Imagenes/03_graduacion_whittaker_log.png>
+Package pdftex.def Info: Imagenes/03_graduacion_whittaker_log.png  used on input line 240.
+(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
+<Imagenes/07_residuos_estandarizados.png, id=225, 722.7pt x 433.62pt>
+File: Imagenes/07_residuos_estandarizados.png Graphic file (type png)
+<use Imagenes/07_residuos_estandarizados.png>
+Package pdftex.def Info: Imagenes/07_residuos_estandarizados.png  used on input line 249.
+(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
+
+
+File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
+<use Imagenes/logo_kovan.jpg>
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 253.
+(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
+[7 <./Imagenes/03_graduacion_whittaker_log.png>]) (./03_conmutacion.tex
+
+File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
+<use Imagenes/logo_kovan.jpg>
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 51.
+(pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
+[8 <./Imagenes/07_residuos_estandarizados.png>]) (./04_valores_actuales.tex
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
 Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 33.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[20]
-Overfull \hbox (6.87477pt too wide) in paragraph at lines 42--43
-[]\T1/ptm/b/n/12 Mayores difer-en-ciales: \T1/ptm/m/n/12 Las rentas diferi-das mues-tran los difer-en-ciales m·s el-e-va-dos (+115$ $%
- []
-
-
+[9]
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 74.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 113.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[21]
+[10]) (./05_conclusiones.tex
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 111.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 7.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[22]
+[11]
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 159.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 60.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[23]
+[12]
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 214.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 116.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[24])
+[13])
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 131.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 129.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[25] (./informe_principal.aux
+[14] (./informe_principal.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1000,22 +941,26 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `informe_principal.out' has not changed.
-(rerunfilecheck)             Checksum: C1CD634882ED629E30DC55162504B505;8012.
+(rerunfilecheck)             Checksum: 4C6D95F429CA98F6ED35A0491A771C17;4760.
  ) 
 Here is how much of TeX's memory you used:
- 29356 strings out of 475170
- 567763 string characters out of 5763938
- 948100 words of memory out of 5000000
- 51705 multiletter control sequences out of 15000+600000
- 608819 words of font info for 103 fonts, out of 8000000 for 9000
+ 29209 strings out of 475170
+ 565870 string characters out of 5763938
+ 944107 words of memory out of 5000000
+ 51656 multiletter control sequences out of 15000+600000
+ 607943 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 103i,15n,104p,666b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on informe_principal.pdf (28 pages, 780261 bytes).
+ 103i,15n,104p,457b,638s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on informe_principal.pdf (16 pages, 1158482 bytes).
 PDF statistics:
- 604 PDF objects out of 1000 (max. 8388607)
- 494 compressed objects within 5 object streams
- 180 named destinations out of 1000 (max. 500000)
- 376 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 371 PDF objects out of 1000 (max. 8388607)
+ 287 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

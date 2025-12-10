@@ -28,9 +28,9 @@ base <- base |>
     FMUERTE = as.Date(as.character(FMUERTE), format = "%Y%m%d")
   )
 
-# head(base)
-# summary(base$FNAC)
-# summary(base$FMUERTE)
+head(base)
+summary(base$FNAC)
+summary(base$FMUERTE)
 
 # Parámetros de estudio
 study_start <- as.Date("2000-01-01")
@@ -293,3 +293,258 @@ lines(tabla_extrapolada$edad[85:110], tabla_extrapolada$qx[85:110], lwd = 4, col
 
 # library(openxlsx)
 # write.xlsx(tabla_extrapolada, file = "tabla_extrapolada2.xlsx")
+
+#######################################
+# VISUALIZACIONES CON GGPLOT2         #
+#######################################
+
+library(ggplot2)
+library(scales)
+
+# Tema personalizado para los gráficos
+tema_informe <- theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 14),
+    plot.subtitle = element_text(hjust = 0.5, color = "gray50"),
+    axis.title = element_text(face = "bold"),
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+
+# 1. Tasa bruta de mortalidad (datos completos)
+g1 <- ggplot(tabla_expo, aes(x = edad, y = TasaBruta)) +
+  geom_point(color = "gray40", size = 1.5, alpha = 0.7) +
+  labs(
+    title = "Tasa Bruta de Mortalidad por Edad",
+    subtitle = "Población masculina, Origen 2 (2000-2012)",
+    x = "Edad (años)",
+    y = expression(q[x] ~ "(Tasa de mortalidad)")
+  ) +
+  tema_informe
+print(g1)
+
+# 2. Comparación: Tasa bruta vs Suavizada (Whittaker)
+g2 <- ggplot(base2, aes(x = edad)) +
+  geom_point(aes(y = TasaBruta, color = "Observada"), size = 2, alpha = 0.6) +
+  geom_line(aes(y = TasasEsperadas.2, color = "Suavizada (WH)"), linewidth = 1.2) +
+  scale_color_manual(
+    name = "Tipo",
+    values = c("Observada" = "gray40", "Suavizada (WH)" = "firebrick")
+  ) +
+  labs(
+    title = "Graduación Whittaker-Henderson",
+    subtitle = "Edades 20-84 años",
+    x = "Edad (años)",
+    y = expression(q[x] ~ "(Tasa de mortalidad)")
+  ) +
+  tema_informe
+print(g2)
+
+# 3. Escala logarítmica para visualizar mejor el patrón
+g3 <- ggplot(base2, aes(x = edad)) +
+  geom_point(aes(y = TasaBruta, color = "Observada"), size = 2, alpha = 0.6) +
+  geom_line(aes(y = TasasEsperadas.2, color = "Suavizada (WH)"), linewidth = 1.2) +
+  scale_y_log10(labels = scales::scientific) +
+  scale_color_manual(
+    name = "Tipo",
+    values = c("Observada" = "gray40", "Suavizada (WH)" = "firebrick")
+  ) +
+  labs(
+    title = "Graduación Whittaker-Henderson (Escala Log)",
+    subtitle = "Edades 20-84 años",
+    x = "Edad (años)",
+    y = expression(log(q[x]))
+  ) +
+  tema_informe
+print(g3)
+
+# 4. Tabla extrapolada completa con tramos diferenciados
+tabla_final_graf <- tabla_final %>%
+  mutate(
+    tramo = case_when(
+      edad <= 9 ~ "Opperman (0-9)",
+      edad <= 19 ~ "HP (10-19)",
+      edad <= 84 ~ "WH (20-84)",
+      TRUE ~ "HP (85-109)"
+    ),
+    tramo = factor(tramo, levels = c("Opperman (0-9)", "HP (10-19)", 
+                                     "WH (20-84)", "HP (85-109)"))
+  )
+
+g4 <- ggplot(tabla_final_graf, aes(x = edad, y = qx_final, color = tramo)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 1, alpha = 0.7) +
+  scale_color_manual(
+    name = "Método de ajuste",
+    values = c("Opperman (0-9)" = "forestgreen", 
+               "HP (10-19)" = "steelblue",
+               "WH (20-84)" = "firebrick", 
+               "HP (85-109)" = "steelblue")
+  ) +
+  labs(
+    title = "Tabla de Mortalidad Completa",
+    subtitle = "Combinación: Opperman + Heligman-Pollard + Whittaker-Henderson",
+    x = "Edad (años)",
+    y = expression(q[x] ~ "(Probabilidad de muerte)")
+  ) +
+  tema_informe
+print(g4)
+
+# 5. Escala logarítmica de la tabla completa
+g5 <- ggplot(tabla_final_graf, aes(x = edad, y = qx_final, color = tramo)) +
+  geom_line(linewidth = 1.2) +
+  scale_y_log10(labels = scales::scientific) +
+  scale_color_manual(
+    name = "Método de ajuste",
+    values = c("Opperman (0-9)" = "forestgreen", 
+               "HP (10-19)" = "steelblue",
+               "WH (20-84)" = "firebrick", 
+               "HP (85-109)" = "steelblue")
+  ) +
+  labs(
+    title = "Tabla de Mortalidad Completa (Escala Log)",
+    subtitle = "Combinación: Opperman + Heligman-Pollard + Whittaker-Henderson",
+    x = "Edad (años)",
+    y = expression(log(q[x]))
+  ) +
+  tema_informe
+print(g5)
+
+# 6. Exposición y muertes por edad
+g6 <- ggplot(base2, aes(x = edad)) +
+  geom_bar(aes(y = Exposicion), stat = "identity", fill = "steelblue", alpha = 0.6) +
+  geom_line(aes(y = Muertes * max(Exposicion)/max(Muertes)), 
+            color = "firebrick", linewidth = 1) +
+  scale_y_continuous(
+    name = "Exposición (años-persona)",
+    sec.axis = sec_axis(~ . * max(base2$Muertes)/max(base2$Exposicion), 
+                        name = "Muertes")
+  ) +
+  labs(
+    title = "Exposición y Muertes por Edad",
+    subtitle = "Edades 20-84 años",
+    x = "Edad (años)"
+  ) +
+  tema_informe
+print(g6)
+
+# 7. Residuos del ajuste Whittaker
+base2 <- base2 %>%
+  mutate(
+    residuo = Muertes - MuertesEsperadas.2,
+    residuo_std = residuo / sqrt(pmax(MuertesEsperadas.2, 0.01))
+  )
+
+g7 <- ggplot(base2, aes(x = edad, y = residuo_std)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_hline(yintercept = c(-2, 2), linetype = "dotted", color = "firebrick") +
+  geom_point(color = "steelblue", size = 2) +
+  geom_line(color = "steelblue", alpha = 0.5) +
+  labs(
+    title = "Residuos Estandarizados del Ajuste Whittaker",
+    subtitle = "Líneas punteadas: ±2 desviaciones estándar",
+    x = "Edad (años)",
+    y = "Residuo estandarizado"
+  ) +
+  tema_informe
+print(g7)
+
+
+#######################################
+# INFORMACIÓN PARA EL INFORME         #
+#######################################
+
+cat("\n========================================\n")
+cat("   RESUMEN ESTADÍSTICO PARA INFORME   \n")
+cat("========================================\n\n")
+
+# 1. Información de la base de datos
+cat("1. DESCRIPCIÓN DE LA BASE DE DATOS\n")
+cat("-----------------------------------\n")
+cat("• Población: Masculina (TM_SEXO = 'M'), Origen = 2\n")
+cat("• Período de estudio:", format(study_start, "%d/%m/%Y"), "-", 
+    format(study_end, "%d/%m/%Y"), "\n")
+cat("• Registros originales:", format(nrow(base), big.mark = "."), "\n")
+cat("• Muertes en base original:", format(sum(!is.na(base$FMUERTE)), big.mark = "."), "\n")
+cat("• Registros en análisis:", format(nrow(df_obs), big.mark = "."), "\n")
+cat("• Muertes en ventana de observación:", format(sum(df_obs$death_in_window), big.mark = "."), "\n\n")
+
+# 2. Exposición total
+cat("2. EXPOSICIÓN Y MORTALIDAD\n")
+cat("--------------------------\n")
+cat("• Exposición total (años-persona):", format(round(sum(tabla_expo$Exposicion, na.rm = TRUE), 2), big.mark = "."), "\n")
+cat("• Total de muertes:", format(sum(tabla_expo$Muertes, na.rm = TRUE), big.mark = "."), "\n")
+cat("• Tasa cruda global:", round(sum(tabla_expo$Muertes)/sum(tabla_expo$Exposicion), 6), "\n")
+cat("• Rango de edades observadas:", min(tabla_expo$edad), "-", max(tabla_expo$edad), "años\n")
+cat("• Rango para graduación (base2):", min(base2$edad), "-", max(base2$edad), "años\n\n")
+
+# 3. Estadísticas de la graduación
+cat("3. GRADUACIÓN WHITTAKER-HENDERSON\n")
+cat("---------------------------------\n")
+cat("• Parámetro lambda: 1/50 = 0.02\n")
+cat("• Orden de diferencias (d): 2\n")
+cat("• qx mínimo suavizado:", format(min(TasasEsperadas.2), scientific = TRUE, digits = 4), "\n")
+cat("• qx máximo suavizado:", format(max(TasasEsperadas.2), scientific = TRUE, digits = 4), "\n\n")
+
+# 4. Tests de bondad de ajuste
+cat("4. TESTS DE BONDAD DE AJUSTE\n")
+cat("----------------------------\n")
+cat("• Test KS:\n")
+cat("    - Estadístico D:", round(ks_res$statistic, 4), "\n")
+cat("    - p-valor:", format(ks_res$p.value, scientific = TRUE, digits = 4), "\n")
+cat("    - Conclusión:", ifelse(ks_res$p.value > 0.05, "No se rechaza H0 (α=0.05)", "Se rechaza H0 (α=0.05)"), "\n\n")
+
+cat("• Test del Signo:\n")
+cat("    - Estadístico S:", sign_res$statistic, "\n")
+cat("    - p-valor:", format(sign_res$p.value, digits = 4), "\n")
+cat("    - Conclusión:", ifelse(sign_res$p.value > 0.05, "No se rechaza H0 (α=0.05)", "Se rechaza H0 (α=0.05)"), "\n\n")
+
+cat("• Test Chi-Cuadrado:\n")
+cat("    - Estadístico χ²:", round(chi_val, 2), "\n")
+cat("    - Grados de libertad:", gl, "\n")
+cat("    - p-valor:", format(p_chi, scientific = TRUE, digits = 4), "\n")
+cat("    - Conclusión:", ifelse(p_chi > 0.05, "No se rechaza H0 (α=0.05)", "Se rechaza H0 (α=0.05)"), "\n\n")
+
+# 5. Extrapolación
+cat("5. EXTRAPOLACIÓN\n")
+cat("----------------\n")
+cat("• Tramo infantil (0-9): Ley de Opperman\n")
+cat("• Tramo juvenil (10-19): Heligman-Pollard\n")
+cat("• Tramo adulto (20-84): Whittaker-Henderson\n")
+cat("• Tramo senil (85-109): Heligman-Pollard\n")
+cat("• Factor de escala Opperman:", round(factor, 6), "\n\n")
+
+# 6. Tabla final
+cat("6. TABLA FINAL EXTRAPOLADA\n")
+cat("--------------------------\n")
+cat("• Rango de edades:", min(tabla_extrapolada$edad), "-", max(tabla_extrapolada$edad), "años\n")
+cat("• qx edad 0:", format(tabla_extrapolada$qx[tabla_extrapolada$edad == 0], scientific = TRUE, digits = 4), "\n")
+cat("• qx edad 30:", format(tabla_extrapolada$qx[tabla_extrapolada$edad == 30], scientific = TRUE, digits = 4), "\n")
+cat("• qx edad 65:", format(tabla_extrapolada$qx[tabla_extrapolada$edad == 65], scientific = TRUE, digits = 4), "\n")
+cat("• qx edad 85:", format(tabla_extrapolada$qx[tabla_extrapolada$edad == 85], scientific = TRUE, digits = 4), "\n")
+
+# Crear data.frame resumen para exportar
+resumen_informe <- data.frame(
+  Metrica = c(
+    "Registros originales", "Muertes en base", "Registros en análisis",
+    "Muertes en ventana", "Exposición total", "Total muertes (análisis)",
+    "Tasa cruda global", "KS p-valor", "Signo p-valor", "Chi2 p-valor",
+    "Factor escala Opperman"
+  ),
+  Valor = c(
+    nrow(base), sum(!is.na(base$FMUERTE)), nrow(df_obs),
+    sum(df_obs$death_in_window), round(sum(tabla_expo$Exposicion), 2),
+    sum(tabla_expo$Muertes), round(sum(tabla_expo$Muertes)/sum(tabla_expo$Exposicion), 6),
+    round(ks_res$p.value, 6), round(sign_res$p.value, 6), round(p_chi, 6),
+    round(factor, 6)
+  )
+)
+
+cat("\n• Data frame 'resumen_informe' creado con métricas clave\n")
+cat("• Gráficos guardados en variables g1 a g7\n")
+
+# Guardar gráficos (opcional)
+ggsave("g1_tasa_bruta.png", g1, width = 10, height = 6, dpi = 300)
+ggsave("g2_whittaker.png", g2, width = 10, height = 6, dpi = 300)
+ggsave("g4_tabla_completa.png", g4, width = 12, height = 6, dpi = 300)
+

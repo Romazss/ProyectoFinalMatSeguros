@@ -1,0 +1,5 @@
+"Test","Estadistico","GL","p_valor","Decision_alpha_005"
+"Kolmogorov-Smirnov",0.0769,NA,0.991222,"No rechaza H0"
+"Test del Signo",34,NA,0.804317,"No rechaza H0"
+"Chi-Cuadrado",38.04,64,0.995946,"No rechaza H0"
+"Test de Rachas",2.6484,NA,0.008088,"Rechaza H0"

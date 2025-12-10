@@ -1,0 +1,12 @@
+"Modelo","Parametro","Valor"
+"Whittaker-Henderson","lambda",0.02
+"Whittaker-Henderson","d",2
+"Heligman-Pollard","A",0.00417537291136361
+"Heligman-Pollard","B",0.00399665405211325
+"Heligman-Pollard","C",0.0836474814987369
+"Heligman-Pollard","D",0.00117685819667844
+"Heligman-Pollard","E",7.06573652156512
+"Heligman-Pollard","F_",39.8225349893048
+"Heligman-Pollard","G",1.09613155104874e-05
+"Heligman-Pollard","H",1.1146080681189
+"Opperman (factor escala)","factor_empalme",0.197307655706384
