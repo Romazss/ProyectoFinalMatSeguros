@@ -109,15 +109,15 @@ nrow(df_obs); sum(df_obs$death_in_window)
 base2 <- tabla_expo %>% filter(edad >= 20, edad < 85)
 
 # Suavizamiento Whittaker con WH
-mortalidad.WH <- WH(base2$Muertes, base2$Exposicion)
-TasasEsperadas <- exp(mortalidad.WH$y_hat)              # m_x suavizada
-MuertesEsperadas <- base2$Exposicion * TasasEsperadas   # E_x * m_x
+# mortalidad.WH <- WH(base2$Muertes, base2$Exposicion)
+# TasasEsperadas <- exp(mortalidad.WH$y_hat)              # m_x suavizada
+# MuertesEsperadas <- base2$Exposicion * TasasEsperadas   # E_x * m_x
 
-plot(base2$edad, base2$TasaBruta,
-     type = "p", pch = 19, col = "gray40",
-     xlab = "Edad", ylab = "Tasa de mortalidad",
-     main = "Tasa de Mortalidad con curva WH")
-lines(base2$edad, TasasEsperadas, lwd = 3, col = "lightblue")
+# plot(base2$edad, base2$TasaBruta,
+#      type = "p", pch = 19, col = "gray40",
+#      xlab = "Edad", ylab = "Tasa de mortalidad",
+#      main = "Tasa de Mortalidad con curva WH")
+# lines(base2$edad, TasasEsperadas, lwd = 3, col = "lightblue")
 
 # Suavizamento Whittaker con MortalityTables
 obsTable = mortalityTable.period(
@@ -128,6 +128,7 @@ obsTable = mortalityTable.period(
 obsTable.suave1 = whittaker.mortalityTable(obsTable,
                                            lambda = 1/50, d = 2, name.postfix = "smoothed (d=2, lambda=1/10)")
 
+base2$TasasEsperadas.2 <- obsTable.suave1@deathProbs
 TasasEsperadas.2 <- obsTable.suave1@deathProbs
 plot(base2$edad, base2$TasaBruta,
      type = "p", pch = 19, col = "gray40",
@@ -174,31 +175,11 @@ plot(data$Edad[0:10], data$qx[0:10],
      xlab = "Edad", ylab = "Tasa de mortalidad",
      main = "Extrapolación Heligman–Pollard")
 
-# Datos de referencia 0–9 años
-ref_0_9 <- data %>% select(edad = Edad, qx) %>%
-  filter(edad >= 0, edad <= 9)
-
-fit_OP <- MortalityLaw(
-  x  = ref_0_9$edad,
-  qx = ref_0_9$qx,
-  law = "opperman"
-)
-
-edad_0_9 <- 0:9
-qx_OP <- predict(fit_OP, x = edad_0_9)
-
-tabla_OP <- data.frame(
-  edad  = edad_0_9,
-  qx_OP = qx_OP
-)
-
-## 2) AJUSTE HELIGMAN–POLLARD EN TRAMO ESTABLE ----------
-
 # base2: tabla asignada con edades 20–84 y TasaBruta = qx observada
 
 fit_HP <- MortalityLaw(
   x  = base2$edad,
-  qx = base2$TasaBruta,
+  qx = TasasEsperadas.2,
   law = "HP"
 )
 
@@ -211,43 +192,104 @@ tabla_HP <- data.frame(
   qx_HP = qx_HP
 )
 
-# combinar HP con observados en 20–84
-tabla_HP_obs <- tabla_HP %>%
-  left_join(base2 %>% select(edad, qx_obs = TasaBruta), by = "edad") %>%
-  mutate(
-    qx_HP_obs = case_when(
-      edad >= 20 & edad <= 84 ~ qx_obs,  # tramo observado
-      TRUE                    ~ qx_HP    # cabeza 10–19 y cola 85–109
-    )
-  )
+# Opperman
+ref_0_9 <- data %>% select(edad = Edad, qx_ref = qx) %>%
+  filter(edad >= 0, edad <= 9)
+
+fit_OP <- MortalityLaw(
+  x  = ref_0_9$edad,
+  qx = ref_0_9$qx_ref,
+  law = "opperman"
+)
+
+# Predecimos Opperman en 0–10 (10 solo para poder escalar)
+edad_OP_all <- 0:10
+qx_OP_all   <- predict(fit_OP, x = edad_OP_all)
+
+# Separar qx Opperman en 0–9
+edad_OP_0_9 <- 0:9
+qx_OP_0_9   <- qx_OP_all[edad_OP_all <= 9]
+
+# Valor de Opperman en 10 (para el empalme de nivel)
+qx_OP_10 <- qx_OP_all[edad_OP_all == 10]
+
+## 2) Obtener qx de HP en 10 (escala de tu población) -------------------
+
+# Si ya tienes fit_HP (ajustado sobre tus datos/WH):
+qx_HP_10 <- tabla_HP %>%
+  filter(edad == 10) %>%
+  pull(qx_HP)
 
 
-## 3) UNIR TODO: OPPEMAN (0–9) + HP/OBSERVADOS (10–109) -----------------
+## 3) Calcular factor de escala y re-escalar Opperman -------------------
 
-tabla_completa <- tabla_OP %>%
-  rename(qx_infantil = qx_OP) %>%
-  full_join(
-    tabla_HP_obs %>% select(edad, qx_HP_obs),
-    by = "edad"
-  ) %>%
-  mutate(
-    qx_final = case_when(
-      edad <= 9           ~ qx_infantil,  # 0–9: Opperman
-      TRUE                ~ qx_HP_obs     # 10–109: HP + observados
-    )
-  ) %>%
-  arrange(edad)
+factor <- qx_HP_10 / qx_OP_10   # generalmente < 1 en tu caso
 
-plot(tabla_completa$edad, tabla_completa$qx_final,
+qx_OP_0_9_scaled <- qx_OP_0_9 * factor
+
+tabla_OP_scaled <- data.frame(
+  edad   = edad_OP_0_9,
+  qx_inf = qx_OP_0_9_scaled   # qx infantil ajustado a la escala de tu población
+)
+
+
+## 4) Armar tabla final (ejemplo de unión con el resto) -----------------
+# Aquí solo te muestro cómo podrías engancharlo.
+# Supongamos que ya tienes:
+# - tabla_WH: edades 20–84 con qx_WH (graduado WH)
+# - tabla_HP_total: qx de HP para 10–109 (cabeza y cola)
+
+# Ejemplo:
+edad_HP_all <- 10:109
+qx_HP_all   <- predict(fit_HP, x = edad_HP_all)
+
+tabla_HP_total <- data.frame(
+  edad  = edad_HP_all,
+  qx_HP = qx_HP_all
+)
+
+# Tramo observado graduado (20–84)
+# (ajusta nombres según tu objeto real de WH)
+tabla_WH <- base2 %>%
+  select(edad, qx_WH = TasasEsperadas.2)
+
+# Construimos qx_final siguiendo:
+# 0–9: infantil ajustado
+# 10–19: HP
+# 20–84: WH
+# 85–109: HP
+
+tabla_final <- bind_rows(
+  # 0–9: Opperman escalado
+  tabla_OP_scaled %>%
+    transmute(edad, qx_final = qx_inf),
+  
+  # 10–19 y 85–109: HP
+  tabla_HP_total %>%
+    transmute(edad, qx_final = qx_HP),
+  
+  # 20–84: WH (reemplaza el HP en ese tramo)
+  tabla_WH %>%
+    transmute(edad, qx_final = qx_WH)
+) %>%
+  arrange(edad) %>%
+  distinct(edad, .keep_all = TRUE)
+
+plot(tabla_final$edad, tabla_final$qx_final,
      type = "p", pch = 19, col = "gray40",
      xlab = "Edad", ylab = "Tasa de mortalidad",
      main = "Extrapolación Heligman–Pollard y Opperman")
-lines(tabla_completa$edad[0:9], tabla_completa$qx_final[0:9], lwd = 3, col="lightgreen")
-lines(tabla_completa$edad[10:19], tabla_completa$qx_final[10:19], lwd = 3, col="lightblue")
-lines(tabla_completa$edad[85:110], tabla_completa$qx_final[85:110], lwd = 3, col="lightpink")
 
-tabla_extrapolada <- tabla_completa %>%
+tabla_extrapolada <- tabla_final %>%
   select(edad, qx = qx_final)
 
-library(openxlsx)
-write.xlsx(tabla_extrapolada, file = "tabla_extrapolada.xlsx")
+plot(tabla_extrapolada$edad, tabla_extrapolada$qx,
+     type = "p", pch = 19, col = "gray40",
+     xlab = "Edad", ylab = "Tasa de mortalidad",
+     main = "Extrapolación Heligman–Pollard y Opperman")
+lines(tabla_extrapolada$edad[0:9], tabla_extrapolada$qx[0:9], lwd = 4, col="lightgreen")
+lines(tabla_extrapolada$edad[10:19], tabla_extrapolada$qx[10:19], lwd = 4, col="lightblue")
+lines(tabla_extrapolada$edad[85:110], tabla_extrapolada$qx[85:110], lwd = 4, col="lightblue")
+
+# library(openxlsx)
+# write.xlsx(tabla_extrapolada, file = "tabla_extrapolada2.xlsx")
