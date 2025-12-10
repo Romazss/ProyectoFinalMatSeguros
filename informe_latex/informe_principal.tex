@@ -1,0 +1,131 @@
+% ============================================================================
+% ARCHIVO PRINCIPAL: informe_principal.tex
+% ============================================================================
+% Documento LaTeX modular - Proyecto Final Matemáticas Actuariales
+% EYP2605 - Nov 2025
+%
+% Para compilar:
+%   pdflatex -interaction=nonstopmode informe_principal.tex
+%   pdflatex -interaction=nonstopmode informe_principal.tex
+%
+% Estructura modular:
+% - Preámbulo: Paquetes y configuración de estilo
+% - Portada: Título, integrantes y datos del proyecto
+% - Tabla de Contenidos
+% - Secciones: Introducción, Construcción tabla, Conmutación, Valores actuales, Conclusiones
+% ============================================================================
+
+\documentclass[12pt, a4paper, oneside]{article}
+
+% ============================================================================
+% PREÁMBULO (Paquetes y configuración)
+% ============================================================================
+\input{00_preambulo.tex}
+
+% ============================================================================
+% INICIO DEL DOCUMENTO
+% ============================================================================
+\begin{document}
+
+% ============================================================================
+% PORTADA PROFESIONAL
+% ============================================================================
+\begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    
+    \vspace*{0.3cm}
+    
+    % Logo UC
+    \includegraphics[width=0.28\textwidth]{Imagenes/logo_uc.png}
+    
+    \vspace{0.7cm}
+    
+    {\Large\textcolor{celesteoscuro}{\textbf{Pontificia Universidad Católica de Chile}}}
+    
+    \vspace{0.15cm}
+    {\large\textcolor{grisoscuro}{Facultad de Matemáticas}}
+    
+    \vspace{1.5cm}
+    
+    {\Huge\textcolor{celesteprincipal}{\textbf{Proyecto Final}}}
+    
+    \vspace{0.3cm}
+    
+    {\LARGE\textcolor{celesteoscuro}{\textbf{Construcción de Tabla de Mortalidad}}}
+    
+    \vspace{0.15cm}
+    
+    {\LARGE\textcolor{celesteoscuro}{\textbf{y Cálculo de Valores Actuales}}}
+    
+    \vspace{1.5cm}
+    
+    \begin{tcolorbox}[colback=celestefondo, colframe=celesteprincipal, boxrule=2pt, arc=5pt]
+        \centering
+        {\Large\textbf{\textcolor{celesteoscuro}{EYP2605 - Matemáticas Actuariales}}}
+        
+        \vspace{0.3cm}
+        {\normalsize\textcolor{grisoscuro}{Noviembre 2025}}
+        
+        \vspace{0.2cm}
+        {\small\textcolor{grisoscuro}{Tabla Asignada: INVALIDEZ 2014 - Masculino}}
+        
+        \vspace{0.15cm}
+        {\small\textcolor{grisoscuro}{Período de Análisis: 01/01/2000 - 31/12/2012}}
+    \end{tcolorbox}
+    
+    \vspace{1.2cm}
+    
+    \begin{flushleft}
+    {\large\textbf{\textcolor{celesteoscuro}{Integrantes del Proyecto}}}
+    
+    \vspace{0.4cm}
+    
+    {\normalsize\textcolor{grisoscuro}{
+    \begin{tabular}{l}
+        $\bullet$ \quad [Nombre Integrante 1] \\[0.2cm]
+        $\bullet$ \quad [Nombre Integrante 2] \\[0.2cm]
+        $\bullet$ \quad [Nombre Integrante 3] \\[0.2cm]
+        $\bullet$ \quad [Nombre Integrante 4] \\
+    \end{tabular}
+    }}
+    \end{flushleft}
+    
+    \vfill
+    
+    {\normalsize\textcolor{celesteoscuro}{Fecha de Entrega: 11 de diciembre de 2025}}
+    
+\end{titlepage}
+
+% ============================================================================
+% TABLA DE CONTENIDOS
+% ============================================================================
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+
+% ============================================================================
+% CUERPO DEL INFORME
+% ============================================================================
+\newpage
+\setcounter{page}{1}
+
+% Introducción
+\input{01_introduccion.tex}
+
+% Sección 1: Construcción de Tabla de Mortalidad (60%)
+\input{02_construccion_tabla.tex}
+
+% Sección 2: Valores de Conmutación (10%)
+\input{03_conmutacion.tex}
+
+% Sección 3: Cálculo de Valores Actuales (30%)
+\input{04_valores_actuales.tex}
+
+% Conclusiones y Referencias
+\input{05_conclusiones.tex}
+
+% ============================================================================
+% FIN DEL DOCUMENTO
+% ============================================================================
+\end{document}

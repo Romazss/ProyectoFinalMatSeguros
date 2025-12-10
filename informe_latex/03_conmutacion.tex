@@ -1,0 +1,170 @@
+% ============================================================================
+% SECCIÓN 3: VALORES DE CONMUTACIÓN (10%)
+% ============================================================================
+
+\section{Valores de Conmutación y Obtención de Valores Actuales}
+
+Esta sección corresponde al 10\% de la evaluación del proyecto y comprende el cálculo de las funciones de conmutación necesarias para determinar valores actuales de seguros y rentas.
+
+% ----------------------------------------------------------------------------
+\subsection{Fundamentos Teóricos}
+
+Las funciones de conmutación simplifican el cálculo de valores actuales mediante el uso de valores tabulados. Para una tasa de interés técnico $i$, se definen las siguientes funciones:
+
+\begin{align}
+v &= \frac{1}{1+i} = \text{Factor de descuento} \\
+\Dx{x} &= v^x \cdot \lx{x} \\
+\Nx{x} &= \sum_{t=x}^{\omega} \Dx{t} \\
+\Sx{x} &= \sum_{t=x}^{\omega} \Nx{t} \\
+\Cx{x} &= v^{x+0.5} \cdot \dx{x} \\
+\Mx{x} &= \sum_{t=x}^{\omega} \Cx{t}
+\end{align}
+
+Donde:
+\begin{itemize}
+    \item $\Dx{x}$: Función de descuento para sobrevivientes
+    \item $\Nx{x}$: Suma acumulada de $D_x$ desde edad $x$ hasta $\omega$
+    \item $\Sx{x}$: Suma acumulada de $N_x$ desde edad $x$ hasta $\omega$
+    \item $\Cx{x}$: Función de descuento para fallecidos (pago a mitad de año)
+    \item $\Mx{x}$: Suma acumulada de $C_x$ desde edad $x$ hasta $\omega$
+    \item $\omega$: Edad límite de la tabla (109 años)
+\end{itemize}
+
+% ----------------------------------------------------------------------------
+\subsection{Parámetros del Cálculo}
+
+\begin{hallazgobox}
+\textbf{Especificaciones:}
+\begin{itemize}
+    \item \textbf{Tasa de interés técnico:} $i = 5\%$ anual
+    \item \textbf{Factor de descuento:} $v = \frac{1}{1.05} \approx 0.952381$
+    \item \textbf{Raíz de la tabla:} $\lx{10} = 10.000.000$
+    \item \textbf{Edad límite:} $\omega = 109$ años
+\end{itemize}
+\end{hallazgobox}
+
+% ----------------------------------------------------------------------------
+\subsection{Valores de Conmutación - Tabla Obtenida}
+
+Se calcularon las funciones de conmutación para la tabla de mortalidad construida en la Sección 2:
+
+\begin{table}[H]
+\centering
+\caption{Funciones de conmutación - Tabla obtenida (extracto)}
+\label{tab:conmutacion_obtenida}
+\small
+\begin{tabular}{cccccc}
+\toprule
+\tableheadercolor
+\textbf{Edad} & $\mathbf{D_x}$ & $\mathbf{N_x}$ & $\mathbf{S_x}$ & $\mathbf{C_x}$ & $\mathbf{M_x}$ \\
+\midrule
+10 & 5,804,420 & 114,684,112 & 2,087,359,378 & 7,722 & 343,271 \\
+20 & 3,522,082 & 67,862,874 & 1,170,436,516 & 3,054 & 290,516 \\
+25 & 2,745,014 & 51,882,046 & 864,674,669 & 3,190 & 274,440 \\
+30 & 2,135,947 & 39,434,010 & 631,407,003 & 3,341 & 258,136 \\
+40 & 1,284,710 & 22,246,127 & 321,578,258 & 3,225 & 225,370 \\
+50 & 764,143 & 11,952,242 & 149,822,673 & 2,834 & 194,988 \\
+60 & 446,619 & 5,866,390 & 60,358,199 & 3,037 & 167,267 \\
+70 & 237,215 & 2,394,583 & 19,065,580 & 5,931 & 123,186 \\
+75 & 159,696 & 1,372,099 & 9,296,874 & 5,462 & 94,357 \\
+80 & 100,393 & 698,089 & 3,905,834 & 5,390 & 67,150 \\
+90 & 22,234 & 91,248 & 327,574 & 3,401 & 17,888 \\
+100 & 831 & 1,969 & 4,397 & 286 & 736 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{notabox}
+\textbf{Nota:} La tabla completa de valores de conmutación se encuentra en el archivo: \newline
+\texttt{tablas/conmutacion\_tabla\_obtenida.csv}
+\end{notabox}
+
+% ----------------------------------------------------------------------------
+\subsection{Valores de Conmutación - Tabla de Referencia MI2014}
+
+Se calcularon las funciones de conmutación para la tabla de referencia INVALIDEZ 2014 (Masculino):
+
+\begin{table}[H]
+\centering
+\caption{Funciones de conmutación - Tabla de referencia MI2014 (extracto)}
+\label{tab:conmutacion_referencia}
+\small
+\begin{tabular}{cccccc}
+\toprule
+\tableheadercolor
+\textbf{Edad} & $\mathbf{D_x}$ & $\mathbf{N_x}$ & $\mathbf{S_x}$ & $\mathbf{C_x}$ & $\mathbf{M_x}$ \\
+\midrule
+10 & 5,800,906 & 98,815,411 & 1,529,116,247 & 33,868 & 1,095,409 \\
+20 & 3,296,523 & 53,092,524 & 767,809,963 & 29,971 & 768,307 \\
+25 & 2,455,079 & 38,384,144 & 533,491,301 & 25,060 & 627,262 \\
+30 & 1,818,360 & 27,453,401 & 364,739,785 & 20,488 & 511,055 \\
+40 & 979,733 & 13,439,700 & 160,345,363 & 13,916 & 339,746 \\
+50 & 498,360 & 6,022,468 & 63,388,004 & 11,483 & 211,575 \\
+60 & 226,978 & 2,401,549 & 21,759,495 & 7,713 & 112,618 \\
+70 & 93,073 & 819,883 & 5,999,295 & 4,015 & 54,030 \\
+75 & 56,736 & 432,836 & 2,749,293 & 3,088 & 36,125 \\
+80 & 31,773 & 202,940 & 1,096,675 & 2,422 & 22,109 \\
+90 & 5,940 & 24,825 & 91,777 & 922 & 4,758 \\
+100 & 266 & 674 & 1,597 & 84 & 234 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{notabox}
+\textbf{Nota:} La tabla completa de valores de conmutación para la referencia se encuentra en: \newline
+\texttt{tablas/conmutacion\_tabla\_referencia.csv}
+\end{notabox}
+
+% ----------------------------------------------------------------------------
+\subsection{Verificación de Cálculos}
+
+Para verificar la correcta implementación de las funciones de conmutación, se comprobaron las siguientes relaciones:
+
+\begin{enumerate}
+    \item \textbf{Relación recursiva de $N_x$:}
+    \begin{equation}
+    \Nx{x} = \Dx{x} + \Nx{x+1}
+    \end{equation}
+    
+    \item \textbf{Relación recursiva de $S_x$:}
+    \begin{equation}
+    \Sx{x} = \Nx{x} + \Sx{x+1}
+    \end{equation}
+    
+    \item \textbf{Relación recursiva de $M_x$:}
+    \begin{equation}
+    \Mx{x} = \Cx{x} + \Mx{x+1}
+    \end{equation}
+    
+    \item \textbf{Condiciones finales:}
+    \begin{align}
+    \Nx{\omega} &= \Dx{\omega} \\
+    \Sx{\omega} &= \Nx{\omega} \\
+    \Mx{\omega} &= \Cx{\omega}
+    \end{align}
+\end{enumerate}
+
+\textbf{Resultado de verificación:} Las verificaciones fueron exitosas. Todas las relaciones recursivas se cumplen dentro de la precisión numérica esperada, y las condiciones finales se satisfacen correctamente para edad límite $\omega = 109$ años.
+
+% ----------------------------------------------------------------------------
+\subsection{Comparación Visual}
+
+[COMPLETAR: Insertar gráficos que muestren la evolución de las funciones de conmutación por edad, comparando tabla obtenida vs. referencia]
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.85\textwidth]{Imagenes/comparacion_Dx.png}
+% \caption{Comparación de la función $D_x$ entre tabla obtenida y referencia}
+% \label{fig:comparacion_Dx}
+% \end{figure}
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.85\textwidth]{Imagenes/comparacion_Nx.png}
+% \caption{Comparación de la función $N_x$ entre tabla obtenida y referencia}
+% \label{fig:comparacion_Nx}
+% \end{figure}
+
+\subsection{Observaciones Preliminares}
+
+[COMPLETAR: Comentar brevemente las diferencias observadas entre las funciones de conmutación de ambas tablas y sus posibles implicaciones para el cálculo de valores actuales.]

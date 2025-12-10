@@ -1,0 +1,51 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{Resumen}{1}{Doc-Start}%
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contexto}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Hipótesis}{1}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Eje A: Distribución Geográfica de la Pobreza}{1}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Eje B: Brecha Salarial de Género}{2}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Justificación}{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Métodos}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Fuente de Datos}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Diseño Muestral}{2}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Etapa 1 -- Selección de UPM}{2}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Etapa 2 -- Selección de Viviendas}{2}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Implementación en R}{2}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Variables del Diseño Muestral}{3}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Variables de Análisis}{3}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Variables Dependientes}{3}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Variables Independientes}{4}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Estrategia Analítica}{4}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Eje 1 -- Pobreza}{4}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Eje 2 -- Brecha Salarial}{4}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Software}{4}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Resultados}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Eje 1: Distribución de la Pobreza}{4}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Incidencia de pobreza por región}{5}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Pobreza por zona (urbano/rural)}{6}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Modelo logístico de pobreza}{6}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Ingreso por tamaño de hogar}{7}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Análisis de mediación}{7}{subsubsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.2}Eje 2: Brecha Salarial de Género}{8}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Brecha bruta (sin controles)}{8}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Brecha por nivel educativo}{9}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Modelos de regresión}{9}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Brecha por grupo de edad}{10}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Validación: Sesgo por No Ponderar}{10}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Discusión}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Síntesis de Hallazgos}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Comparación con Antecedentes}{11}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Pobreza Territorial}{11}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Brecha Salarial}{11}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Limitaciones}{11}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Limitaciones Muestrales}{11}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Limitaciones Analíticas}{11}{subsubsection.4.3.2}%
+\contentsline {section}{\numberline {5}Conclusiones}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Principales Hallazgos}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Respuesta a Hipótesis}{12}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Eje A: Distribución Geográfica de la Pobreza}{12}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Eje B: Brecha Salarial de Género}{12}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Conclusión General y Recomendaciones}{13}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Recomendaciones para Política Pública}{13}{subsubsection.5.3.1}%
+\contentsfinish 

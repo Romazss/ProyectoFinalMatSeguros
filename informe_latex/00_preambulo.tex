@@ -1,0 +1,162 @@
+% Preámbulo del informe final - Proyecto Matemáticas Actuariales
+% Configuración de paquetes y estilos con consistencia visual PUC
+% NOTA: Este archivo se incluye con \input{} - NO contiene \documentclass
+
+% Paquetes de idioma y codificación
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% Márgenes y espaciado
+\usepackage[margin=2.3cm, headheight=25pt, footskip=56pt]{geometry}
+\usepackage{setspace}
+\singlespacing
+
+% Reducir espacios entre párrafos
+\setlength{\parskip}{2pt}
+\setlength{\partopsep}{0pt}
+\setlength{\topsep}{1pt}
+
+% Tipografía
+\usepackage{times}
+\usepackage{courier}  % Fuente Courier para \texttt
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% Gráficos y tablas
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Enlaces y referencias
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% Colores
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+
+% Numeración y estilos de secciones
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Encabezados y pies de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{celesteoscuro}{\small\thepage}}
+\lhead{\textcolor{celesteoscuro}{\small\textit{EYP2605 - Matemáticas Actuariales}}}
+\rfoot{\includegraphics[width=0.08\textwidth]{Imagenes/logo_kovan.jpg}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{celesteprincipal}\leaders\hrule height \headrulewidth\hfill}}
+
+% Definición de colores PUC (celestes)
+\definecolor{celesteprincipal}{RGB}{0,150,200}
+\definecolor{celestesuave}{RGB}{135,206,235}
+\definecolor{celesteclaro}{RGB}{173,216,230}
+\definecolor{celesteoscuro}{RGB}{0,105,148}
+\definecolor{celestefondo}{RGB}{230,245,255}
+\definecolor{grisoscuro}{RGB}{64,64,64}
+
+% Configuración de enlaces
+\hypersetup{
+    colorlinks=true,
+    linkcolor=celesteoscuro,
+    citecolor=celesteprincipal,
+    urlcolor=celesteprincipal,
+    pdfborder={0 0 0}
+}
+
+% Configuración de títulos
+\titleformat{\section}
+{\Large\bfseries\color{celesteoscuro}}
+{\thesection}{1em}{}
+[\vspace{-0.3em}{\color{celesteprincipal}\hrule height 1.5pt}\vspace{0.4em}]
+
+\titleformat{\subsection}
+{\large\bfseries\color{celesteprincipal}}
+{\thesubsection}{1em}{}
+[\vspace{-0.1em}]
+
+\titleformat{\subsubsection}
+{\normalsize\bfseries\color{celesteoscuro}}
+{\thesubsubsection}{1em}{}
+[\vspace{0em}]
+
+% Configuración de captions
+\captionsetup{
+    labelfont={bf,color=celesteoscuro},
+    textfont={small,color=grisoscuro},
+    justification=justified,
+    margin=8pt
+}
+
+% Cajas destacadas
+\newtcolorbox{hallazgobox}{
+    colback=celestefondo,
+    colframe=celesteprincipal,
+    boxrule=1.5pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt
+}
+
+% Caja para notas importantes
+\newtcolorbox{notabox}{
+    colback=yellow!10,
+    colframe=orange!80,
+    boxrule=1.2pt,
+    arc=3pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt
+}
+
+% Estilos de tablas
+\newcommand{\tableheadercolor}{\rowcolor{celesteclaro}}
+
+% Configuración de listas
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=2pt, topsep=2pt, partopsep=0pt}
+\setlist[itemize]{itemsep=2pt, topsep=2pt, partopsep=0pt}
+
+% Configuración del índice (TOC)
+\titlecontents{section}
+    [0em]
+    {\vspace{3pt}\large\bfseries\color{celesteoscuro}}
+    {\contentslabel{1.5em}}
+    {}
+    {\normalfont\color{celesteprincipal}\dotfill\thecontentspage}
+
+\titlecontents{subsection}
+    [2em]
+    {\vspace{1pt}\small\color{grisoscuro}}
+    {\contentslabel{1.5em}}
+    {}
+    {\normalfont\color{celesteprincipal}\dotfill\thecontentspage}
+
+% Ocultar subsubsecciones del TOC
+\setcounter{tocdepth}{2}
+
+% Comandos personalizados para notación actuarial
+\newcommand{\qx}[1]{q_{#1}}
+\newcommand{\px}[1]{p_{#1}}
+\newcommand{\lx}[1]{l_{#1}}
+\newcommand{\dx}[1]{d_{#1}}
+\newcommand{\Lx}[1]{L_{#1}}
+\newcommand{\Tx}[1]{T_{#1}}
+\newcommand{\ex}[1]{e_{#1}}
+\newcommand{\Dx}[1]{D_{#1}}
+\newcommand{\Nx}[1]{N_{#1}}
+\newcommand{\Cx}[1]{C_{#1}}
+\newcommand{\Mx}[1]{M_{#1}}
+\newcommand{\Sx}[1]{S_{#1}}

@@ -1,0 +1,48 @@
+% Discusión
+\section{Discusión}
+
+\subsection{Síntesis de Hallazgos}
+
+Los resultados confirman dos patrones de desigualdad estructural en Chile:
+
+\begin{enumerate}
+    \item \textbf{Brecha territorial:} La pobreza rural supera significativamente a la urbana, con la educación como mecanismo mediador central. Este hallazgo es consistente con la literatura sobre desarrollo territorial desigual en América Latina.
+    
+    \item \textbf{Brecha de género:} La diferencia salarial persiste incluso controlando por capital humano y características laborales, evidenciando discriminación residual en el mercado laboral.
+\end{enumerate}
+
+\subsection{Comparación con Antecedentes}
+
+\subsubsection{Pobreza Territorial}
+
+Nuestros resultados (5.3\% urbano vs 8.4\% rural) son consistentes con las estimaciones oficiales del MDSF (2023) y confirman la tendencia histórica de mayor incidencia rural documentada desde CASEN 1990.
+
+\subsubsection{Brecha Salarial}
+
+La brecha bruta de 20.7\% es similar a la reportada por el INE (2022) para el ingreso medio mensual. El hallazgo de que la brecha presenta un \textit{patrón no lineal} con la educación---siendo máxima en educación técnica superior (21.1\%) y postgrado (20.8\%), pero menor en profesionales (14.1\%)---es consistente con estudios internacionales sobre el \textit{glass ceiling} (techo de cristal) y la segregación ocupacional que afecta especialmente a ocupaciones técnicas y de alta dirección.
+
+Según el INE:
+
+\begin{quote}
+``Se confirma que la segregación horizontal y vertical del mercado del trabajo según el sexo de las personas están presentes en el mercado laboral en Chile: existen ramas altamente feminizadas... además, en cada una de las ramas analizadas las mujeres acceden en menor medida que los hombres a posiciones de mayor jerarquía.''
+\end{quote}
+
+\subsection{Limitaciones}
+
+\subsubsection{Limitaciones Muestrales}
+
+\begin{itemize}
+    \item \textbf{Sesgo de selección:} El análisis de brecha salarial excluye a quienes no participan en el mercado laboral, potencialmente subestimando la desigualdad total.
+\end{itemize}
+
+\subsubsection{Limitaciones Analíticas}
+
+\begin{itemize}
+    \item \textbf{Variable de ingreso:} \texttt{ytrabajocorh} representa el ingreso del hogar, no del individuo. Esto puede introducir confusión en hogares con múltiples perceptores.
+    
+    \item \textbf{Corte transversal:} Los datos no permiten establecer causalidad ni controlar por factores no observados constantes en el tiempo.
+    
+    \item \textbf{Manejo de NA:} Aunque se implementó \texttt{case\_when()} para evitar sesgos, la proporción de datos faltantes en algunas variables puede afectar la representatividad.
+\end{itemize}
+
+
