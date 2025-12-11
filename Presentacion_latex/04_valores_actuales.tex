@@ -1,0 +1,144 @@
+\section{Valores Actuales}
+
+\begin{frame}{Productos Actuariales Analizados}
+  \textbf{Se evaluaron 5 productos con tasa técnica $i = 5\%$:}
+  \begin{enumerate}
+    \item Dotal Puro (edad 70)
+    \item Renta Vitalicia Vencida
+    \item Renta Vitalicia Diferida (75 años) Anticipada
+    \item Renta Temporal Vencida (80 años)
+    \item Renta Temporal Diferida (70 años) Anticipada
+  \end{enumerate}
+  
+  \vspace{0.3cm}
+  
+  \begin{block}{Objetivo}
+    Comparar valores actuales entre tabla obtenida y MI2014 para identificar diferencias en costos y reservas.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Dotal Puro (Edad 70)}
+  \textbf{Definición:} Pago de 1 unidad si sobrevive hasta edad 70.
+  \[ {}_{70-x}E_x = \frac{D_{70}}{D_x} \]
+
+  \begin{table}
+    \centering
+    \begin{tabular}{cccc}
+      \toprule
+      \textbf{Edad} & \textbf{Referencia} & \textbf{Obtenida} & \textbf{Dif. \%} \\
+      \midrule
+      38 & 0.0837 & 0.1684 & +101\% \\
+      54 & 0.2522 & 0.3873 & +54\% \\
+      62 & 0.4866 & 0.6036 & +24\% \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  
+  \begin{alertblock}{Interpretación}
+    Mayor supervivencia en tabla obtenida implica mayores costos para productos de supervivencia. El diferencial disminuye con la edad.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Renta Vitalicia Vencida}
+  \textbf{Definición:} Pago de 1 unidad al final de cada año de vida.
+  \[ a_x = \frac{N_{x+1}}{D_x} \]
+
+  \begin{table}
+    \centering
+    \begin{tabular}{cccc}
+      \toprule
+      \textbf{Edad} & \textbf{Referencia} & \textbf{Obtenida} & \textbf{Dif. \%} \\
+      \midrule
+      45 & 11.90 & 15.58 & +31\% \\
+      60 & 9.58 & 12.21 & +27\% \\
+      90 & 3.18 & 3.10 & -2\% \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  
+  \begin{block}{Implicancia Actuarial}
+    MI2014 subestima significativamente el costo de rentas vitalicias en edades medias (45-60). Convergencia en edades avanzadas.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Renta Vitalicia Diferida (75) Anticipada}
+  \textbf{Definición:} Pago al inicio de cada año desde edad 75.
+  \[ {}_{|75-x}\ddot{a}_x = \frac{N_{75}}{D_x} \]
+
+  \begin{table}
+    \centering
+    \begin{tabular}{cccc}
+      \toprule
+      \textbf{Edad} & \textbf{Referencia} & \textbf{Obtenida} & \textbf{Dif. \%} \\
+      \midrule
+      25 & 0.1763 & 0.5043 & +186\% \\
+      40 & 0.4418 & 1.0779 & +144\% \\
+      70 & 4.6505 & 5.7763 & +24\% \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  
+  \begin{alertblock}{Hallazgo Crítico}
+    Diferenciales extremos en edades jóvenes ($>180\%$). Doble efecto: mayor supervivencia hasta 75 y mayor longevidad posterior.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Rentas Temporales}
+  \small
+  \textbf{Renta Temporal Vencida (80):}
+  \vspace{-0.15cm}
+  \[ a_{x:\overline{80-x}|} = \frac{N_{x+1} - N_{81}}{D_x} \]
+  \vspace{-0.3cm}
+  
+  \begin{table}
+    \centering
+    \footnotesize
+    \begin{tabular}{cccc}
+      \toprule
+      \textbf{Edad} & \textbf{Ref.} & \textbf{Obt.} & \textbf{Dif.} \\
+      \midrule
+      25 & 14.55 & 17.65 & +21\% \\
+      50 & 10.68 & 13.74 & +29\% \\
+      75 & 3.05 & 3.21 & +5\% \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \vspace{-0.15cm}
+  \textbf{Renta Temp. Dif. (70):}
+  \vspace{-0.15cm}
+  \[ {}_{|70-x}\ddot{a}_{x:\overline{80-x}|} = \frac{N_{70} - N_{81}}{D_x} \]
+  \vspace{-0.3cm}
+  
+  \begin{table}
+    \centering
+    \footnotesize
+    \begin{tabular}{cccc}
+      \toprule
+      \textbf{Edad} & \textbf{Ref.} & \textbf{Obt.} & \textbf{Dif.} \\
+      \midrule
+      32 & 7.04 & 9.87 & +40\% \\
+      50 & 4.41 & 6.78 & +54\% \\
+      68 & 0.68 & 0.87 & +27\% \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Síntesis de Valores Actuales}
+  \begin{block}{Patrón General Observado}
+    \small
+    \begin{itemize}
+      \item \textbf{Supervivencia:} Valores +20\% a +186\% mayores
+      \item \textbf{Mayor Diferencial:} Productos diferidos jóvenes
+      \item \textbf{Convergencia:} Reducción en edades avanzadas
+    \end{itemize}
+  \end{block}
+  
+  \vspace{0.2cm}
+  
+  \begin{alertblock}{Implicancia para Aseguradoras}
+    \small
+    MI2014 \textbf{subestima} reservas necesarias para esta población.
+  \end{alertblock}
+\end{frame}

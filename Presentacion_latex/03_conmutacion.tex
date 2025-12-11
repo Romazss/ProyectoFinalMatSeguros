@@ -1,0 +1,85 @@
+\section{Valores de Conmutación}
+
+\begin{frame}{Funciones de Conmutación}
+  \begin{block}{Base Técnica}
+    \begin{itemize}
+      \item \textbf{Interés Técnico ($i$):} 5\% anual
+      \item \textbf{Factor de Descuento ($v$):} $v = \frac{1}{1+i} = 0.952381$
+      \item \textbf{Raíz de la Tabla ($l_{10}$):} 10,000,000
+      \item \textbf{Edad Límite ($\omega$):} 109 años
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Definiciones de Funciones}
+  \textbf{Funciones Básicas:}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{align*}
+        D_x &= v^x \cdot l_x \\
+        N_x &= \sum_{t=x}^{\omega} D_t \\
+        S_x &= \sum_{t=x}^{\omega} N_t
+      \end{align*}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{align*}
+        C_x &= v^{x+0.5} \cdot d_x \\
+        M_x &= \sum_{t=x}^{\omega} C_t \\
+        R_x &= \sum_{t=x}^{\omega} M_t
+      \end{align*}
+    \end{column}
+  \end{columns}
+  
+  \vspace{0.5cm}
+  
+  \textbf{Interpretación Actuarial:}
+  \begin{itemize}
+    \item $D_x, N_x, S_x$: Relacionadas con seguros de vida entera y rentas vitalicias
+    \item $C_x, M_x, R_x$: Relacionadas con seguros temporales y pagos por muerte
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tabla de Conmutación Obtenida (Resumen)}
+  \vspace{-0.4cm}
+  \tiny
+  \input{tablas/tabla_conmutacion_obtenida_resumen}
+  
+  \vspace{0.1cm}
+  
+  \begin{alertblock}{Observación}
+    \small
+    $D_x$ decrece por descuento ($v^x$) y mortalidad ($l_x$).
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Tabla de Conmutación Referencia (Resumen)}
+  \vspace{-0.4cm}
+  \tiny
+  \input{tablas/tabla_conmutacion_referencia_resumen}
+  
+  \vspace{0.1cm}
+  
+  \begin{block}{Nota Comparativa}
+    \small
+    MI2014 presenta $N_x$ y $M_x$ menores (mayor mortalidad).
+  \end{block}
+\end{frame}
+
+\begin{frame}{Utilidad de las Funciones de Conmutación}
+  \textbf{Ventajas:}
+  \begin{itemize}
+    \item Simplificación de cálculos de valores actuales
+    \item Reducción de operaciones aritméticas complejas
+    \item Facilidad para cálculo de múltiples productos
+  \end{itemize}
+  
+  \vspace{0.5cm}
+  
+  \textbf{Aplicaciones:}
+  \begin{itemize}
+    \item Seguros de vida (temporales, vitalicios, dotales)
+    \item Rentas vitalicias (inmediatas, diferidas, temporales)
+    \item Reservas técnicas
+    \item Primas de seguros
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,115 @@
+% ============================================================================
+% PRESENTACIÓN: Proyecto Final Matemáticas Actuariales
+% ============================================================================
+
+\documentclass{beamer}
+
+% ============================================================================
+% PAQUETES Y CONFIGURACIÓN
+% ============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Ruta de imágenes
+\graphicspath{{Imagenes/}}
+
+% Tema y colores
+\usetheme{Madrid}
+\usecolortheme{dolphin}
+
+% Definición de colores consistentes con informe
+\definecolor{celesteprincipal}{RGB}{0,150,200}
+\definecolor{celestesuave}{RGB}{135,206,235}
+\definecolor{celesteclaro}{RGB}{173,216,230}
+\definecolor{celesteoscuro}{RGB}{0,105,148}
+\definecolor{celestefondo}{RGB}{230,245,255}
+\definecolor{grisoscuro}{RGB}{64,64,64}
+
+% Personalización de colores Beamer
+\setbeamercolor{structure}{fg=celesteoscuro}
+\setbeamercolor{frametitle}{bg=celesteoscuro, fg=white}
+\setbeamercolor{title}{bg=celesteoscuro, fg=white}
+\setbeamercolor{block title}{bg=celesteprincipal, fg=white}
+\setbeamercolor{block body}{bg=celestefondo, fg=black}
+\setbeamercolor{block title alerted}{bg=celesteoscuro, fg=white}
+\setbeamercolor{block body alerted}{bg=celesteclaro, fg=black}
+\setbeamercolor{block title example}{bg=celestesuave, fg=black}
+\setbeamercolor{block body example}{bg=celestefondo, fg=black}
+
+% Configuración de fuentes
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize, series=\bfseries}
+
+% Configuración de tablas
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.3}
+
+% Información del título
+\title[Proyecto Final Mat. Seguros]{Construcción de Tabla de Mortalidad y Cálculo de Valores Actuales}
+\subtitle{Proyecto Final - Introducción a la Matemática de Seguros}
+\author[Cuevas \& Román]{
+  Juan Pablo Cuevas \and Esteban Román Soto
+}
+\institute[PUC]{
+  Pontificia Universidad Católica de Chile\\
+  Facultad de Matemáticas
+}
+\date{11 de Diciembre de 2025}
+
+% Logo en cada diapositiva
+\logo{\includegraphics[height=0.8cm]{logo_kovan.jpg}}
+
+% ============================================================================
+% INICIO DEL DOCUMENTO
+% ============================================================================
+\begin{document}
+
+% Diapositiva de título
+\begin{frame}[plain]
+  \vspace{0.5cm}
+  \begin{center}
+    \includegraphics[width=0.25\textwidth]{logo_uc.png}
+    
+    \vspace{0.8cm}
+    
+    {\LARGE\textbf{\color{celesteoscuro}Construcción de Tabla de Mortalidad}}\\[0.3cm]
+    {\LARGE\textbf{\color{celesteoscuro}y Cálculo de Valores Actuales}}
+    
+    \vspace{0.6cm}
+    
+    {\large\color{celesteprincipal}Proyecto Final - Introducción a la Matemática de Seguros}
+    
+    \vspace{1cm}
+    
+    {\normalsize
+    \textbf{Juan Pablo Cuevas} \quad \textbf{Esteban Román Soto}\\[0.3cm]
+    \textit{Pontificia Universidad Católica de Chile}\\
+    \textit{Facultad de Matemáticas}
+    }
+    
+    \vspace{0.6cm}
+    
+    {\small 11 de Diciembre de 2025}
+  \end{center}
+\end{frame}
+
+% Tabla de contenidos
+\begin{frame}{Contenidos}
+  \tableofcontents
+\end{frame}
+
+% Inclusión de secciones
+\include{01_introduccion}
+\include{02_construccion_tabla}
+\include{03_conmutacion}
+\include{04_valores_actuales}
+\include{05_conclusiones}
+
+\end{document}

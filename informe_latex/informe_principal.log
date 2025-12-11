@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.3)  10 DEC 2025 19:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.3)  11 DEC 2025 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,13 +669,6 @@ LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported  on input line 11.
-
-
-LaTeX Warning: Label `fig:graduacion_wh' multiply defined.
-
-
-LaTeX Warning: Label `fig:graduacion_wh@cref' multiply defined.
-
 )
 \openout1 = `informe_principal.aux'.
 
@@ -963,30 +956,26 @@ File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 298.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
 [13 <./Imagenes/06_exposicion_muertes.png>]
-File: Imagenes/02_graduacion_whittaker.png Graphic file (type png)
-<use Imagenes/02_graduacion_whittaker.png>
-Package pdftex.def Info: Imagenes/02_graduacion_whittaker.png  used on input line 304.
-(pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
 <Imagenes/03_graduacion_whittaker_log.png, id=244, 722.7pt x 433.62pt>
 File: Imagenes/03_graduacion_whittaker_log.png Graphic file (type png)
 <use Imagenes/03_graduacion_whittaker_log.png>
-Package pdftex.def Info: Imagenes/03_graduacion_whittaker_log.png  used on input line 311.
+Package pdftex.def Info: Imagenes/03_graduacion_whittaker_log.png  used on input line 305.
 (pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
 <Imagenes/07_residuos_estandarizados.png, id=245, 722.7pt x 433.62pt>
 File: Imagenes/07_residuos_estandarizados.png Graphic file (type png)
 <use Imagenes/07_residuos_estandarizados.png>
-Package pdftex.def Info: Imagenes/07_residuos_estandarizados.png  used on input line 330.
+Package pdftex.def Info: Imagenes/07_residuos_estandarizados.png  used on input line 324.
 (pdftex.def)             Requested size: 349.96877pt x 209.98123pt.
 
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 334.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 331.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
 [14
 
- <./Imagenes/03_graduacion_whittaker_log.png>]
-Overfull \hbox (5.51338pt too wide) in paragraph at lines 340--341
+ <./Imagenes/03_graduacion_whittaker_log.png> <./Imagenes/07_residuos_estandarizados.png>]
+Overfull \hbox (5.51338pt too wide) in paragraph at lines 334--335
 []\T1/ptm/b/n/12 Distribución gen-er-al: \T1/ptm/m/n/12 La may-oría de los resid-u-os se en-cuen-tran den-tro del in-ter-va-lo $\OT1/cmr/m/n/12 [\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 +2]$
  []
 
@@ -994,9 +983,9 @@ Overfull \hbox (5.51338pt too wide) in paragraph at lines 340--341
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
-Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 346.
+Package pdftex.def Info: Imagenes/logo_kovan.jpg  used on input line 340.
 (pdftex.def)             Requested size: 37.33086pt x 51.50487pt.
-[15 <./Imagenes/07_residuos_estandarizados.png>]) (./03_conmutacion.tex (./tablas/tabla_conmutacion_obtenida_completa.tex
+[15]) (./03_conmutacion.tex (./tablas/tabla_conmutacion_obtenida_completa.tex
 
 File: Imagenes/logo_kovan.jpg Graphic file (type jpg)
 <use Imagenes/logo_kovan.jpg>
@@ -1096,26 +1085,22 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `informe_principal.out' has not changed.
 (rerunfilecheck)             Checksum: 5265271542CB9AFE6FD673620342374F;4168.
  ) 
 Here is how much of TeX's memory you used:
- 29311 strings out of 475170
- 568928 string characters out of 5763938
+ 29310 strings out of 475170
+ 568911 string characters out of 5763938
  1031331 words of memory out of 5000000
  51732 multiletter control sequences out of 15000+600000
  611467 words of font info for 110 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  103i,15n,104p,457b,652s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/Users/esteb/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on informe_principal.pdf (30 pages, 1361420 bytes).
+Output written on informe_principal.pdf (30 pages, 1361242 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 91 named destinations out of 1000 (max. 500000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 321 compressed objects within 4 object streams
+ 90 named destinations out of 1000 (max. 500000)
  226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

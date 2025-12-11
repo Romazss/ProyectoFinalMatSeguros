@@ -1,0 +1,145 @@
+\section{Construcción de Tabla}
+
+\begin{frame}{Datos y Selección}
+  \begin{block}{Resumen de Datos}
+    \small
+    \begin{itemize}
+      \item \textbf{Fuente:} \texttt{Base\_act.RData}
+      \item \textbf{Registros Iniciales:} 365,898
+      \item \textbf{Registros Válidos:} 360,441
+      \item \textbf{Muertes Observadas:} 28,510
+    \end{itemize}
+  \end{block}
+  
+  \vspace{0.2cm}
+  
+  \begin{alertblock}{Implicancia}
+    \small
+    5,457 registros excluidos (sin exposición positiva).
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Tasas de Mortalidad Crudas}
+  \vspace{-0.3cm}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.68\textwidth]{01_tasa_bruta_mortalidad.png}
+    \caption{Tasas brutas ($q_x$) observadas}
+  \end{figure}
+  
+  \vspace{-0.2cm}
+  \small
+  \textbf{Análisis:}
+  \begin{itemize}
+    \item Mortalidad estable en adultos jóvenes
+    \item Crecimiento exponencial desde 60 años
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Graduación Whittaker-Henderson}
+  \vspace{-0.1cm}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \small
+      \textbf{Parámetros:}
+      \begin{itemize}
+        \item \textbf{Rango:} 20 a 84 años
+        \item \textbf{Suavidad ($\lambda$):} 0.02
+        \item \textbf{Orden ($d$):} 2
+      \end{itemize}
+      
+      \vspace{0.3cm}
+      
+      \textbf{Justificación:}
+      \begin{itemize}
+        \item Mayor estabilidad de tasas
+        \item Concentración de exposición
+        \item Coherencia con MI2014
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{02_graduacion_whittaker.png}
+        \caption{Ajuste graduado}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Bondad de Ajuste}
+  \textbf{Tests Estadísticos Aplicados:}
+  
+  \vspace{0.2cm}
+  
+  \begin{table}
+    \centering
+    \small
+    \begin{tabular}{lcc}
+      \toprule
+      \textbf{Test} & \textbf{p-valor} & \textbf{Resultado} \\
+      \midrule
+      Chi-Cuadrado & 0.9959 & No rechaza $H_0$ \\
+      Kolmogorov-Smirnov & 0.9912 & No rechaza $H_0$ \\
+      Rachas & 0.0081 & Rechaza $H_0$ \\
+      Signos & 0.8043 & No rechaza $H_0$ \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  
+  \vspace{0.3cm}
+  
+  \begin{block}{Conclusión}
+    \small
+    3 de 4 tests validan el ajuste. Rechazo de Rachas esperado por suavización WH.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Extrapolación y Tabla Completa}
+  \textbf{4 Tramos de la Tabla:}
+  \small
+  \begin{enumerate}
+    \item \textbf{Edades 0-9:} Método de Oppermann
+    \item \textbf{Edades 10-19:} Método de Heligman-Pollard (cabeza)
+    \item \textbf{Edades 20-84:} Whittaker-Henderson (graduación)
+    \item \textbf{Edades 85-109:} Heligman-Pollard (cola)
+  \end{enumerate}
+
+  \vspace{0.1cm}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.65\textwidth]{04_tabla_mortalidad_completa.png}
+    \caption{Tabla Completa con 4 segmentos}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tabla de Mortalidad Obtenida (Resumen)}
+  \vspace{-0.4cm}
+  \tiny
+  \input{tablas/tabla_mortalidad_obtenida_resumen}
+\end{frame}
+
+\begin{frame}{Tabla de Mortalidad Referencia (Resumen)}
+  \vspace{-0.3cm}
+  \tiny
+  \input{tablas/tabla_mortalidad_referencia_resumen}
+\end{frame}
+
+\begin{frame}{Comparación: Tabla Obtenida vs Referencia}
+  \begin{block}{Hallazgos Clave}
+    \small
+    \begin{itemize}
+      \item \textbf{Mortalidad Menor:} $q_x$ inferiores a MI2014
+      \item \textbf{Mayor Longevidad:} $e_x$ más altas
+      \item \textbf{Impacto:} Subestimación de costos con MI2014
+    \end{itemize}
+  \end{block}
+  
+  \vspace{0.2cm}
+  
+  \begin{exampleblock}{Ejemplo}
+    \small
+    Edad 40: $e_{40}^{\text{Obt}} = 43.2$ años vs $e_{40}^{\text{MI2014}} = 38.7$ años
+  \end{exampleblock}
+\end{frame}

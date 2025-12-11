@@ -1,0 +1,63 @@
+\section{Introducción}
+
+\begin{frame}{Especificaciones del Proyecto}
+  \begin{block}{Parámetros Asignados}
+    \begin{itemize}
+      \item \textbf{Tabla de Referencia:} INVALIDEZ 2014 - Masculino
+      \item \textbf{Criterios de Selección:} Origen = 2, Sexo = Masculino
+      \item \textbf{Período de Análisis:} 01/01/2000 -- 31/12/2012 (13 años)
+      \item \textbf{Tasa de Interés Técnico:} 5\% anual
+      \item \textbf{Raíz de la Tabla:} $l_{10} = 10.000.000$
+    \end{itemize}
+  \end{block}
+  
+  \vspace{0.3cm}
+  
+  \begin{alertblock}{Fuente de Datos}
+    \texttt{Base\_act.RData} -- Base de datos actuarial con registros históricos de exposición y eventos.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Estructura del Trabajo}
+  \begin{enumerate}
+    \item \textbf{Construcción de Tabla de Mortalidad (60\%):}
+      \begin{itemize}
+        \item Obtención del cuerpo mediante graduación Whittaker-Henderson
+        \item Evaluación de bondad de ajuste (tests estadísticos)
+        \item Extrapolación de cabeza (Oppermann) y cola (Heligman-Pollard)
+        \item Construcción de tabla completa con esperanzas de vida
+      \end{itemize}
+    \item \textbf{Valores de Conmutación (10\%):}
+      \begin{itemize}
+        \item Cálculo de funciones $D_x, N_x, S_x, C_x, M_x, R_x$
+        \item Para tabla obtenida y tabla de referencia
+      \end{itemize}
+    \item \textbf{Valores Actuales (30\%):}
+      \begin{itemize}
+        \item Cálculo y comparación de 5 productos actuariales
+        \item Análisis de diferenciales y implicancias
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Herramientas y Metodología}
+  \textbf{Software:} R (versión 4.x) con RStudio
+  
+  \vspace{0.5cm}
+  
+  \textbf{Librerías Principales:}
+  \begin{itemize}
+    \item \texttt{tidyverse}, \texttt{lubridate}: Manipulación y limpieza de datos
+    \item \texttt{MortalityTables}: Graduación y construcción de tablas
+    \item \texttt{MortalityLaws}: Modelos de extrapolación (Oppermann, Heligman-Pollard)
+    \item \texttt{randtests}, \texttt{BSDA}, \texttt{tseries}: Tests estadísticos de bondad de ajuste
+  \end{itemize}
+  
+  \vspace{0.5cm}
+  
+  \textbf{Script Principal:} \texttt{trabajo\_final.r}
+  
+  \vspace{0.3cm}
+  
+  \small{\textit{Nota: Se utilizó asistencia de IA para optimización de código.}}
+\end{frame}
