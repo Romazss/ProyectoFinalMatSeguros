@@ -1,0 +1,15 @@
+PROYECTO FINAL - MATEMÁTICAS ACTUARIALES
+========================================
+
+Asignación: Origen=2, TM_SEXO=M
+Período análisis: 2000-01-01 a 2012-12-31
+Ejecutado: 2025-12-11 19:38:10
+Tiempo total: 19.4 segundos
+
+Módulos ejecutados:
+  ✓ Módulo 1: Carga y preparación de datos
+  ✓ Módulo 2: Cálculo de tasas crudas
+  ✓ Módulo 3: Graduación y tests de bondad
+  ✓ Módulo 4: Construcción de tabla completa
+  ✓ Módulo 5: Valores de conmutación
+  ✓ Módulo 6: Valores actuales

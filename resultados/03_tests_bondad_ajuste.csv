@@ -1,0 +1,5 @@
+Test,Estadistico,Valor_p,Resultado
+Chi-cuadrado,38.037143779725106,0.9929272533656842,Buen ajuste
+Kolmogorov-Smirnov,0.0032552060615708145,0.9986234207102676,Buen ajuste
+Signos,34,0.8043170001934012,Buen ajuste
+Rachas,44,0.0080883024947358,Mal ajuste

@@ -1,0 +1,10 @@
+"Categoria","Cantidad","Porcentaje"
+"Total registros",365765,100
+"Edad NA",0,0
+"Edad < 0",19588,5.35535111341982
+"Edad > 110",0,0
+"Total omitidos",19588,5.35535111341982
+"Total válidos (0-110)",346177,94.6446488865802
+"Muertes en omitidos",20,0.0701336045166041
+"Muertes en válidos",28497,99.9298663954834
+"Muertes totales",28517,100

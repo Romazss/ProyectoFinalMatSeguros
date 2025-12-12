@@ -19,15 +19,14 @@
 \contentsline {subsection}{\numberline {2.5}Tabla de Mortalidad Completa Obtenida}{7}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Tabla Completa Obtenida}{8}{subsubsection.2.5.1}%
 \contentsline {subsubsection}{\numberline {2.5.2}Tabla Completa de Referencia MI2014}{10}{subsubsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.6}Visualización y Resultados Finales}{13}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Valores de Conmutación}{16}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Funciones de Conmutación}{16}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Cálculo de Valores Actuales}{25}{section.4}%
-\contentsline {subsection}{\numberline {4.1} Dotal Puro}{25}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Renta Vitalicia Vencida}{25}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Renta Vitalicia Diferida (75 años) Anticipada}{26}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Renta Temporal Vencida (80 años)}{26}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Renta Temporal Diferida Anticipada (70 años y $m=10$)}{26}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Sensibilidad a la Tasa de Interés}{27}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Limitaciones}{27}{section.5}%
+\contentsline {section}{\numberline {3}Valores de Conmutación}{14}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Funciones de Conmutación}{14}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Cálculo de Valores Actuales}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1} Dotal Puro}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Renta Vitalicia Vencida}{23}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Renta Vitalicia Diferida (75 años) Anticipada}{24}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Renta Temporal Vencida (80 años)}{24}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Renta Temporal Diferida Anticipada (70 años y $m=10$)}{24}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Sensibilidad a la Tasa de Interés}{25}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Limitaciones}{25}{section.5}%
 \contentsfinish 
